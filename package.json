@@ -1,0 +1,24 @@
+{
+  "name": "recycle-bin",
+  "version": "1.0.0",
+  "description": "Tienda virtul de productos de chatarreria",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ecoweb2-0/Recycle-bin.git"
+  },
+  "author": "Ecoweb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ecoweb2-0/Recycle-bin/issues"
+  },
+  "homepage": "https://github.com/Ecoweb2-0/Recycle-bin#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.6.5"
+  }
+}

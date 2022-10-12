@@ -4,3 +4,6 @@ exports.getProducts=(req,res,next) =>{
         message:"En esta ruta puede consultar los productos"
     })
 }
+
+//Crear nuevo producto /api/productos
+exports.newProduct ()

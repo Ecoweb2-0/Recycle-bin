@@ -39,17 +39,16 @@ const productosSchema=mongoose.Schema({
         required:[true, "Por favor seleccione la categoria del producto."],
         enum:{
            values:[
-            "Cartones y papeles",
-            "Metales",
+            "Cartón",
+            "Papel",
+            "Metal",
             "Vidrio",
-            "Plásticos",
-            "Reutilizables",
-            "Otros"
+            "Plastico"
            ] 
         }
     },
     vendedor:{
-        tyoe:String,
+        type:String,
         required:[true, "Por favor registre el vendedor del producto"]
     },
     inventario:{

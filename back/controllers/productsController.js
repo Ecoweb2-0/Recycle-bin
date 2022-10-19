@@ -1,4 +1,5 @@
 const producto=require("../models/productos")
+const fetch =(url)=>import('node-fetch').then(({default:fetch})=>fetch(url));
 
 //Ver la lista de productos
 exports.getProducts=async (req,res,next) =>{
@@ -75,3 +76,22 @@ exports.newProduct=async(req,res,next)=>{
         product
     })
 }
+
+//Usando fetchall
+//Ver todos los productos
+function verProductos(){
+    fetch('http://localhost:4000/api/productos')
+    .then(res=>res.json())
+    .then(res=>console.log(res))
+    .catch(err=>console.error(err))
+}
+//verProductos(); Se llama al metodo creado para probar consulta
+
+//Ver producto por id
+function verProductoPorID(id){
+    fetch('http://localhost:4000/api/producto/'+id)
+    .then(res=>res.json())
+    .then(res=>console.log(res))
+    .catch(err=>console.error(err))
+}
+//verProductoPorID('6348695684579a6e95bf8b12'); probar el fetchall para busqueda por id

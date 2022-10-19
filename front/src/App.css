@@ -31,8 +31,14 @@ nav {
   padding: 1rem 1rem;
 }
 
+navig {
+  background-color: #50cf72d2;
+  padding: 1rem 1rem;
+  color: #232f3e;
+}
+
 #search_btn {
-  background-color: #febd69;
+  background-color: #9bfe69;
 }
 
 .input-group {
@@ -613,4 +619,9 @@ ul.CTAs a {
 .review_user {
   font-size: 0.8rem;
   color: grey;
+}
+
+.link_user {
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
 }

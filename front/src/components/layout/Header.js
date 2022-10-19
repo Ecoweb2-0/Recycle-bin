@@ -32,12 +32,21 @@ const Header = () => {
                     <i class="fa fa-shopping-cart fa-2x text-white" aria-hidden="false"></i>
                     <span className="ml-1" id="cart_count">2</span>
                 </div>
-
             </nav>
-
+            <navig class="navbar row text-center">
+                <a class="link_user col-12 col-md-2" href="#" >Inicio</a>
+                <a class="link_user col-12 col-md-2" href="#" >Métales</a>
+                <a class="link_user col-12 col-md-2" href="#" >Plásticos</a>
+                <a class="link_user col-12 col-md-2" href="#" >Cartón</a>
+                <a class="link_user col-12 col-md-2" href="#" >Papel</a>
+                <a class="link_user col-12 col-md-2" href="#" >Vidrio</a>
+                
+            
+            </navig>
+            
+        
         </Fragment>
     )
-
-    }
+}
 
 export default Header

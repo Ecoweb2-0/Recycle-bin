@@ -8,7 +8,7 @@ const Header = () => {
             <nav className='navbar row'>
                 <div className='col-12 col-md-3'>
                     <div className='navbar-brand'>
-                        <img src="/front/public/images/logo.png" alt="Ecoweb Logo"></img>
+                        <img src="./images/logo.png" alt="Ecoweb Logo" height={80}></img>
                     </div>
                 </div>
 
@@ -18,7 +18,7 @@ const Header = () => {
                             type="text"
                             id="search_field"
                             class="form-control"
-                            placeholder='Producto a buscar?'></input>
+                            placeholder='¿Qué estás buscando?'></input>
                         <div class="input-group-append">
                             <button id="search-btn" class="btn">
                                 <i class="fa fa-search-plus fa-2x text-white" aria-hidden="true"></i>

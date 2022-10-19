@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react'
+import MetaData from './layout/MetaData'
 
 export const Home = () => {
     return (
         <Fragment>
+            <MetaData title="Productos seleccionados"></MetaData>
             <br></br>
             <h1 id="encabezado_productos">Productos Destacados</h1>
 

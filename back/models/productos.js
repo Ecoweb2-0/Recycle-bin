@@ -39,7 +39,7 @@ const productosSchema=mongoose.Schema({
         required:[true, "Por favor seleccione la categoria del producto."],
         enum:{
            values:[
-            "Cartón",
+            "Carton",
             "Papel",
             "Metal",
             "Vidrio",

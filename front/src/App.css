@@ -115,6 +115,10 @@ f
   width: 200px;
   height: 150px;
 }
+.card-img-min {
+  width: 100px;
+  height: 70px;
+}
 
 .ratings {
   font-size: 1.2rem;
@@ -632,4 +636,10 @@ ul.CTAs a {
 .link_user {
   font-size: 1.2rem;
   color: rgb(0, 0, 0);
+}
+
+.barra{
+  background-color: #d3ffbd;
+  padding: 0.8rem 0.8rem;
+  color: #232f3e;  
 }

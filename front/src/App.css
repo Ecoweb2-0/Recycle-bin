@@ -98,9 +98,17 @@ f
   font-size: 1.4rem;
 }
 
+.card-desc {
+  font-size: 0.8rem;
+}
+
 #view_btn {
   background-color: #9bfe69;
   color: black;
+}
+
+#danger {
+  color: rgb(252, 0, 0);
 }
 
 .card-img-top {

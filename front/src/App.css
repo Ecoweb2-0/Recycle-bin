@@ -11,12 +11,12 @@ body {
 /* Scroll Bar */
 
 ::-webkit-scrollbar-track {
-  background-color: #f5f5f5;
+  background-color: #f5f5f538;
 }
 
 ::-webkit-scrollbar {
   width: 8px;
-  background-color: #f5f5f5;
+  background-color: #f5f5f580;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -60,7 +60,7 @@ f
 
 #cart {
   font-size: 1rem;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 #cart_count {
@@ -247,7 +247,7 @@ footer {
 
 #delete_cart_item {
   color: red;
-  background: white;
+  background: rgb(255, 255, 255);
   padding: 0.3rem 0.5rem;
   font-size: 1.1rem;
   border: none;
@@ -294,11 +294,7 @@ footer {
   padding: 0.1rem 0.5rem;
 }
 
-.stockCounter input::-webkit-outer-spin-button,
-.stockCounter input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+
 
 .form-control:disabled,
 .form-control[readonly] {
@@ -323,7 +319,7 @@ footer {
 .wrapper form .btn {
   background-color: #9bfe69;
   border-color: #9bfe69;
-  color: white;
+  color: rgb(255, 255, 255);
   margin-top: 2.5rem;
 }
 

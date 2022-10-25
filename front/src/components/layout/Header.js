@@ -29,11 +29,11 @@ const Header = () => {
                 <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
                     <span><button className='btn' id="login_btn">Inicie Sesión</button></span>
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a class="fa fa-shopping-cart fa-2x text-white" href="/Carrito" aria-hidden="false"></a>
+                    <a class="fa fa-shopping-cart fa-2x text-white" id="cars" href="/Carrito" aria-hidden="false"></a>
                     <span className="ml-1" id="cart_count">2</span>
                 </div>
             </nav>
-            <navig class="navbar row text-center">
+            <tr class="navbar row text-center navig">
                 <a class="link_user col-12 col-md-2" href="#" >Inicio</a>
                 <a class="link_user col-12 col-md-2" href="#" >Métales</a>
                 <a class="link_user col-12 col-md-2" href="#" >Plásticos</a>
@@ -42,7 +42,7 @@ const Header = () => {
                 <a class="link_user col-12 col-md-2" href="#" >Vidrio</a>
                 
             
-            </navig>
+            </tr>
             
         
         </Fragment>

@@ -8,6 +8,7 @@ import { ProductDetails } from './components/products/ProductDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Carrito from './components/Carrito';
 
+
 function App() {
   return (
     <Router>
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/Home" element={<Home />}/>
             <Route path="/Carrito" element={<Carrito />}/>
+
             <Route path="/producto/:id" element={<ProductDetails />}/>
           </Routes>
         </div>

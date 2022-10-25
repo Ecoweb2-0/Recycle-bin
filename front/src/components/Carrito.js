@@ -25,45 +25,41 @@ export const Carrito = () => {
             {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
                 <Fragment>
                     <MetaData title="Excelente eleccion"></MetaData>
-                    <h1 id="encabezado_productos">Productos Seleccionados</h1>
+                    <h3>Productos Seleccionados</h3>
 
-            <section id="productos" className='col-12'>
+            <section id="productos">
 
-            <table className="table col-12">
-                <thead>
+            <table className="table col-11">
+                <thead className="table-dark">
                     <tr>
-                        <th></th>
-                        <th>Imagen</th>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th>Vr. Unit</th>
-                        <th>Vr. Total</th>
-                        <th>Acción</th>
+                        <th className='col-1 text-center'></th>
+                        <th className='col-1 text-center'></th>
+                        <th className='col-3'>Producto</th>
+                        <th className='col-1 text-center'>Cantidad</th>
+                        <th className='col-2 text-center'>Vr. Unit</th>
+                        <th className='col-2 text-center'>Vr. Total</th>
+                        <th className='col-1 text-center'></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="table-group-divider">
                 {productos && productos.map(producto => (
                     <tr>
-                        <td>
-                            <input type="checkbox" name="" id="" />
+                        <td className='col-1 text-center'>
+                            <input type="checkbox" name="" id="seleccion" />
                         </td>
-                        <td> <img className='card-img-min rounded mx-auto d-block' src={producto.imagen[0].url} alt={producto.imagen[0].public_id} ></img></td>
-                        <td className="col-12 col-md-2-5">{producto.nombre}</td>
-                        <td className="col-12 col-md-6 text-center">1</td>
-                        <td className="col-12 col-md-7-8 text-right">$ {producto.precio}</td>
-                        <td className="col-12 col-md-9-10 text-right">$ {producto.precio}</td>
-                        <td><Link to={`/producto/${producto._id}`} id="danger"clasName="col-12 col-md-11 text-center">Eliminar</Link></td>
+                        <td className='col-1'> <img className='card-img-min rounded mx-auto d-block' src={producto.imagen[0].url} alt={producto.imagen[0].public_id} ></img></td>
+                        <td className="col-3">{producto.nombre}</td>
+                        <td className="col-1 text-center">1</td>
+                        <td className="col-2 text-right">$ {producto.precio}</td>
+                        <td className="col-2 text-right">$ {producto.precio}</td>
+                        <td><Link to={`/producto/${producto._id}`} id="delete_cart_item"clasName="col-1 text-center">X</Link></td>
                     </tr>
                 ))}
                 </tbody>
-            </table>
-                    
+            </table> 
             </section>
-            <div>
-                <h2 className="col-12 col-md-8 text-right">Total</h2>
-
-
-            </div>
+            <div> <h3 className="col-9 text-right">Total</h3></div> 
+            <div className='col-11 text-center'><button  className='btn btn-danger text-center'>Ir a pagar</button></div>
                 </Fragment>
 
             )}

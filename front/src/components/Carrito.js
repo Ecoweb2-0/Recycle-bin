@@ -28,32 +28,35 @@ export const Carrito = () => {
                     <h1 id="encabezado_productos">Productos Seleccionados</h1>
 
             <section id="productos" className='col-12'>
-            <div clasName="navbar row text-center">
-                    <a className="col-12 col-md-1">Imagen</a>
-                    <a className="col-12 col-md-4">Producto</a>
-                    <a className="col-12 col-md-1">Cantidad</a>     
-                    <a className="col-12 col-md-2">Vr. Unit</a>    
-                    <a className="col-12 col-md-2">Vr. Total</a>
-                    <a className="col-12 col-md-1">Acción</a>
-            </div>
-                {productos && productos.map (producto => (
-                        <div key={producto._id} className='col-12'>
-                            <table className="table col-12">
 
-                                <tbody>
-                                    <tr>
-                                    <td> <img className='card-img-min rounded mx-auto d-block' src={producto.imagen[0].url} alt={producto.imagen[0].public_id} ></img></td>
-                                    <td><p className="col-12 col-md-2-5">{producto.nombre}</p></td>
-                                    <td><p className="col-12 col-md-6 text-center">1</p></td>
-                                    <td><p className="col-12 col-md-7-8 text-right">$ {producto.precio}</p></td>
-                                    <td><p className="col-12 col-md-9-10 text-right">$ {producto.precio}</p></td>
-                                    <td><Link to={`/producto/${producto._id}`} id="danger"clasName="col-12 col-md-11 text-center">Eliminar</Link></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                                                </div>
-
-                    ))}
+            <table className="table col-12">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Vr. Unit</th>
+                        <th>Vr. Total</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {productos && productos.map(producto => (
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="" id="" />
+                        </td>
+                        <td> <img className='card-img-min rounded mx-auto d-block' src={producto.imagen[0].url} alt={producto.imagen[0].public_id} ></img></td>
+                        <td className="col-12 col-md-2-5">{producto.nombre}</td>
+                        <td className="col-12 col-md-6 text-center">1</td>
+                        <td className="col-12 col-md-7-8 text-right">$ {producto.precio}</td>
+                        <td className="col-12 col-md-9-10 text-right">$ {producto.precio}</td>
+                        <td><Link to={`/producto/${producto._id}`} id="danger"clasName="col-12 col-md-11 text-center">Eliminar</Link></td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
                     
             </section>
             <div>

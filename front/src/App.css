@@ -11,12 +11,12 @@ body {
 /* Scroll Bar */
 
 ::-webkit-scrollbar-track {
-  background-color: #f5f5f538;
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar {
   width: 8px;
-  background-color: #f5f5f580;
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -60,7 +60,7 @@ f
 
 #cart {
   font-size: 1rem;
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
 #cart_count {
@@ -114,6 +114,10 @@ f
 .card-img-top {
   width: 200px;
   height: 150px;
+}
+.card-img-min {
+  width: 100px;
+  height: 70px;
 }
 
 .ratings {
@@ -247,7 +251,7 @@ footer {
 
 #delete_cart_item {
   color: red;
-  background: rgb(255, 255, 255);
+  background: white;
   padding: 0.3rem 0.5rem;
   font-size: 1.1rem;
   border: none;
@@ -294,7 +298,11 @@ footer {
   padding: 0.1rem 0.5rem;
 }
 
-
+.stockCounter input::-webkit-outer-spin-button,
+.stockCounter input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .form-control:disabled,
 .form-control[readonly] {
@@ -319,7 +327,7 @@ footer {
 .wrapper form .btn {
   background-color: #9bfe69;
   border-color: #9bfe69;
-  color: rgb(255, 255, 255);
+  color: white;
   margin-top: 2.5rem;
 }
 
@@ -628,4 +636,10 @@ ul.CTAs a {
 .link_user {
   font-size: 1.2rem;
   color: rgb(0, 0, 0);
+}
+
+.barra{
+  background-color: #d3ffbd;
+  padding: 0.8rem 0.8rem;
+  color: #232f3e;  
 }

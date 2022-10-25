@@ -6,13 +6,10 @@ export const ProductDetails = () => {
     <Fragment>
         <MetaData title="Cobre tonelada"></MetaData>
            <div class="card-footer p-8">
-              <div className='row d-flex left-content-around'>
-                    <img className="card-img-justify" src="../images/Cobre_tonelada.jpg" alt="Imagen_producto" height="300" width="300" />
-                     
-              <div className='position:left '>
-                    <img className="card-img-left" src="../images/Formas.png" alt="Imagen_producto" height="300" width="300" />
-                  </div>        
-                 </div>     
+                                          
+              </div>  
+                 <div className='row d-flex left-content-around'>
+                    <img className="card-img-justify" src="../images/Cobre_tonelada.jpg" alt="Imagen_producto" height="300" width="300" />   
                       
                       <div class="card-body p-8">
                   <div class="text-justify">
@@ -28,7 +25,9 @@ export const ProductDetails = () => {
                     </div>
                             
                       <div class="card-footer p-0 pt-0 border-top-0 bg-transparent">
+                          <div class="padding: 10% 0"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a></div>
                           <div class="padding: 10% 0"><a class="btn btn-outline-dark mt-auto" href="#">Adicicionar a carrito</a></div>
+                      
                       </div>
               
                

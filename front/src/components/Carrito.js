@@ -49,7 +49,7 @@ export const Carrito = () => {
                         <td className="col-3 text-left">{producto.nombre}</td>
                         <td className="col-1 text-center">1</td>
                         <td className="col-2 text-right">$ {producto.precio}</td>
-                        <td><Link to={`/producto/${producto._id}`}><img src='./images/basura.jpg' className='basur'></img></Link></td>
+                        <td><Link to={`/producto/${producto._id}`}><img src='./images/basura.jpg' className='basur' alt="Eliminar"></img></Link></td>
                     </tr>
                 ))}
                 </tbody>

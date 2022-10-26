@@ -17,11 +17,11 @@ const Header = () => {
                         <input
                             type="text"
                             id="search_field"
-                            class="form-control"
+                            className="form-control"
                             placeholder='¿Qué estás buscando?'></input>
-                        <div class="input-group-append">
-                            <button id="search-btn" class="btn">
-                                <i class="fa fa-search-plus fa-2x text-white" aria-hidden="true"></i>
+                        <div className="input-group-append">
+                            <button id="search-btn" className="btn">
+                                <i className="fa fa-search-plus fa-2x text-white" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
@@ -29,17 +29,17 @@ const Header = () => {
                 <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
                     <span><button className='btn' id="login_btn">Inicie Sesión</button></span>
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a class="fa fa-shopping-cart fa-2x text-white" id="cars" href="/Carrito" aria-hidden="false"></a>
+                    <a className="fa fa-shopping-cart fa-2x text-white" id="cars" href="/Carrito" aria-hidden="false"></a>
                     <span className="ml-1" id="cart_count">2</span>
                 </div>
             </nav>
-            <tr class="navbar row text-center navig">
-                <a class="link_user col-12 col-md-2" href="#" >Inicio</a>
-                <a class="link_user col-12 col-md-2" href="#" >Métales</a>
-                <a class="link_user col-12 col-md-2" href="#" >Plásticos</a>
-                <a class="link_user col-12 col-md-2" href="#" >Cartón</a>
-                <a class="link_user col-12 col-md-2" href="#" >Papel</a>
-                <a class="link_user col-12 col-md-2" href="#" >Vidrio</a>
+            <tr className="navbar row text-center navig">
+                <a className="link_user col-12 col-md-2" href="/Home" >Inicio</a>
+                <a className="link_user col-12 col-md-2" href="/Home" >Métales</a>
+                <a className="link_user col-12 col-md-2" href="/Home" >Plásticos</a>
+                <a className="link_user col-12 col-md-2" href="/Home" >Cartón</a>
+                <a className="link_user col-12 col-md-2" href="/Home" >Papel</a>
+                <a className="link_user col-12 col-md-2" href="/Home" >Vidrio</a>
                 
             
             </tr>

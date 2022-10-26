@@ -2,7 +2,7 @@ const venta=require("../models/ventas")
 const fetch =(url)=>import('node-fetch').then(({default:fetch})=>fetch(url)); //Usurpación del require
 
 //Ver la lista de ventas
-exports.getVentas=async (req,res,next) =>{
+exports.getSales=async (req,res,next) =>{
     const ventas= await venta.find();
     if (!ventas){
         return res.status(404).json({

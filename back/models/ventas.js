@@ -23,6 +23,10 @@ const ventasSchema=mongoose.Schema({
            ] 
         }
     },
+    cantidad:{
+        type:Number,
+        default: 0.0
+    },
     
     productos:[
         {
@@ -62,6 +66,7 @@ const ventasSchema=mongoose.Schema({
     fechaCreacion:{
         type:Date,
         default:Date.now
+
     }
 
 })

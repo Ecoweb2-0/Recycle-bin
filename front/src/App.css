@@ -207,6 +207,10 @@ footer {
 #product_image {
   margin-top: 9rem;
 }
+.basur {
+  width: 50px;
+  height: 30px;
+}
 
 /* Loader */
 .loader {
@@ -642,4 +646,19 @@ ul.CTAs a {
   background-color: #d3ffbd;
   padding: 0.8rem 0.8rem;
   color: #232f3e;  
+}
+.table-az{
+  background-color: #232f3e;
+  color:white;
+}
+
+.btn-circle {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.42857;
 }

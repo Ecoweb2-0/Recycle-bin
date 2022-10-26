@@ -25,7 +25,6 @@ export const Transacciones = () => {
             {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
                 <Fragment>
                     <MetaData title="Chatarreria online"></MetaData>
-            <h1 id="encabezado_ventas">Ventas</h1>
 
             <br></br>
                 <h3>Ventas realizadas</h3>

@@ -47,7 +47,9 @@ export const ProductDetails = () => {
     {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
       <Fragment>
       <MetaData title={product.nombre}></MetaData>
+      <br></br>
       <div className='row d-flex justify-content-around'>
+      
           <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
               <Carousel pause='hover'>
                 {product.imagen && product.imagen.map(img =>(

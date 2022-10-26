@@ -35,11 +35,11 @@ const Header = () => {
             </nav>
             <tr className="navbar row text-center navig">
                 <a className="link_user col-12 col-md-2" href="/Home" >Inicio</a>
-                <a className="link_user col-12 col-md-2" href="/Home" >Métales</a>
-                <a className="link_user col-12 col-md-2" href="/Home" >Plásticos</a>
-                <a className="link_user col-12 col-md-2" href="/Home" >Cartón</a>
-                <a className="link_user col-12 col-md-2" href="/Home" >Papel</a>
-                <a className="link_user col-12 col-md-2" href="/Home" >Vidrio</a>
+                <a className="link_user col-12 col-md-2" href="/ventas" >Ventas</a>
+                <a className="link_user col-12 col-md-2" href="/Home" >Productos</a>
+                <a className="link_user col-12 col-md-2" href="/Home" >Nuevos Productos</a>
+                <a className="link_user col-12 col-md-2" href="/Home" >Usuarios</a>
+                <a className="link_user col-12 col-md-2" href="/Carrito" >Carrito</a>
                 
             
             </tr>

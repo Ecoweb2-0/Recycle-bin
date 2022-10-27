@@ -37,7 +37,7 @@ const Header = () => {
                 <a className="link_user col-12 col-md-2" href="/Home" >Inicio</a>
                 <a className="link_user col-12 col-md-2" href="/ventas" >Ventas</a>
                 <a className="link_user col-12 col-md-2" href="/Home" >Productos</a>
-                <a className="link_user col-12 col-md-2" href="/Home" >Nuevos Productos</a>
+                <a className="link_user col-12 col-md-2" href="/producto/nuevo" >Nuevos Productos</a>
                 <a className="link_user col-12 col-md-2" href="/Home" >Usuarios</a>
                 <a className="link_user col-12 col-md-2" href="/Carrito" >Carrito</a>
                 

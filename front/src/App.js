@@ -8,6 +8,7 @@ import { ProductDetails } from './components/products/ProductDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {Carrito} from './components/Carrito';
 import { Transacciones } from './components/Transacciones';
+import Newproduct from './components/Newproduct';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/Carrito" element={<Carrito />}/>
             <Route path="/ventas" element={<Transacciones />}/>
             <Route path="/producto/:id" element={<ProductDetails />}/>
+            <Route path="/producto/nuevo" element={<Newproduct />}/>
           </Routes>
         </div>
         <Footer />

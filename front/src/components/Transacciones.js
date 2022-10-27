@@ -28,10 +28,9 @@ export const Transacciones = () => {
 
             <br></br>
                 <h3>Ventas realizadas</h3>
-               <table className="table">
+               <table className="table col-6 text-center">
                 <thead className="table-az">
                     <tr>
-                        <th className='col-2 text-center'>id</th>
                         <th className='col-2 text-center'>Fecha</th>
                         <th className='col-2 text-right'>Valor</th>
                         <th className='col-2 text-left'>Método de Pago</th>
@@ -40,8 +39,7 @@ export const Transacciones = () => {
                 <tbody className="table-group-divider">
                 {ventas && ventas.map(venta => (
                     <tr>
-                        <td className="col-3 text-left">{venta._id}</td>
-                        <td className="col-1 text-left">{venta.fechaCreacion}</td>
+                        <td className="col-2 text-left">{venta.fechaCreacion}</td>
                         <td className="col-2 text-right"> ${venta.valortotal}</td>
                         <td className="col-2 text-left"> {venta.formapago}</td>
                     </tr>

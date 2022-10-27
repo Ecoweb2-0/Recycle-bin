@@ -31,9 +31,9 @@ nav {
   padding: 1rem 1rem;
 }
 
-navig {
+.navig {
   background-color: #9bfe69;
-  padding: 1rem 1rem;
+  padding: 0.8rem 0.8rem;
   color: #232f3e;
 }
 
@@ -98,14 +98,26 @@ f
   font-size: 1.4rem;
 }
 
+.card-desc {
+  font-size: 0.8rem;
+}
+
 #view_btn {
   background-color: #9bfe69;
   color: black;
 }
 
+#danger {
+  color: rgb(252, 0, 0);
+}
+
 .card-img-top {
   width: 200px;
   height: 150px;
+}
+.card-img-min {
+  width: 100px;
+  height: 70px;
 }
 
 .ratings {
@@ -194,6 +206,14 @@ footer {
 
 #product_image {
   margin-top: 9rem;
+}
+.basur {
+  width: 50px;
+  height: 30px;
+}
+.editimg {
+  width: 30px;
+  height: 30px;
 }
 
 /* Loader */
@@ -324,7 +344,7 @@ footer {
   color: grey;
 }
 
-/* Avatar */
+/* bvatar */
 .avatar {
   display: inline-block;
   margin-bottom: 0;
@@ -624,4 +644,25 @@ ul.CTAs a {
 .link_user {
   font-size: 1.2rem;
   color: rgb(0, 0, 0);
+}
+
+.barra{
+  background-color: #d3ffbd;
+  padding: 0.8rem 0.8rem;
+  color: #232f3e;  
+}
+.table-az{
+  background-color: #232f3e;
+  color:white;
+}
+
+.btn-circle {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.42857;
 }

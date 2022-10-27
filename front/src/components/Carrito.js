@@ -56,6 +56,7 @@ export const Carrito = () => {
                 </tbody>
             </table> 
             
+            
             <div> <h3 className="col-9 text-right">Total</h3></div> 
             <div className='col-11 text-center'><button  className='btn btn-danger text-center'>Ir a pagar</button></div>
             </div>

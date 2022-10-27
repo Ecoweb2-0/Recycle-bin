@@ -1,27 +1,27 @@
-import { ALL_PRODUCTS_REQUEST, 
-    ALL_PRODUCTS_SUCCESS, 
-    ALL_PRODUCTS_FAIL,
-    PRODUCT_DETAILS_REQUEST,
-    PRODUCT_DETAILS_SUCCESS,
-    PRODUCT_DETAILS_FAIL,
-    CLEAR_ERRORS} from "../constants/productConstants";
+import { ALL_SALES_REQUEST, 
+    ALL_SALES_SUCCESS, 
+    ALL_SALES_FAIL,
+    SALE_DETAILS_REQUEST,
+    SALE_DETAILS_SUCCESS,
+    SALE_DETAILS_FAIL,
+    CLEAR_ERRORS} from "../constants/saleConstants";
 
-export const productsReducer = (state ={ products: []}, action)=>{
+export const salesReducer = (state ={ sales: []}, action)=>{
     switch(action.type){
-        case ALL_PRODUCTS_REQUEST:
+        case ALL_SALES_REQUEST:
             return{
                 loading:true,
-                productos:[]
+                ventas:[]
             }
 
-        case ALL_PRODUCTS_SUCCESS:
+        case ALL_SALES_SUCCESS:
             return{
                 loading:false,
-                productos: action.payload.productos,
+                ventas: action.payload.ventas,
                 cantidad: action.payload.cantidad
             }
 
-        case ALL_PRODUCTS_FAIL:
+        case ALL_SALES_FAIL:
             return{
                 loading:false,
                 error: action.payload
@@ -40,22 +40,22 @@ export const productsReducer = (state ={ products: []}, action)=>{
 }
 
 //REDUCER PARA TENER TODOS LOS DETALLES
-export const productDetailsReducer = (state = { product: {} }, action) => {
+export const saleDetailsReducer = (state = { sale: {} }, action) => {
     switch (action.type) {
 
-        case PRODUCT_DETAILS_REQUEST:
+        case SALE_DETAILS_REQUEST:
             return {
                 ...state,
                 loading: true
             }
 
-        case PRODUCT_DETAILS_SUCCESS:
+        case SALE_DETAILS_SUCCESS:
             return {
                 loading: false,
-                product: action.payload
+                sale: action.payload
             }
 
-        case PRODUCT_DETAILS_FAIL:
+        case SALE_DETAILS_FAIL:
             return {
                 ...state,
                 error: action.payload

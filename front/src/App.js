@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {Carrito} from './components/Carrito';
 import { Transacciones } from './components/Transacciones';
 import { AdminProduct } from './components/AdminProduct';
-import AdminProduct2 from './components/AdminProduct2';
+
 
 function App() {
   return (

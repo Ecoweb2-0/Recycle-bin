@@ -100,3 +100,4 @@ function verProductoPorID(id){
 function sumaTotal(){
     
 }
+

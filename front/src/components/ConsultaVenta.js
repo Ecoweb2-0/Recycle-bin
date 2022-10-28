@@ -38,7 +38,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(
-  fecha: (string),
+  fecha: string,
   producto: string,
   cantidad: number,
   precioUnidad: number,

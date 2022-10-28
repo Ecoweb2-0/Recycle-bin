@@ -20,4 +20,3 @@ root.render(
     </AlertProvider>
   </Provider>
 );
-

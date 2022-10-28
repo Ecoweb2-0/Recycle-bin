@@ -3,7 +3,7 @@ import MetaData from './layout/MetaData'
 import {useDispatch, useSelector} from 'react-redux'
 import { getSales } from '../actions/saleActions'
 import { useAlert} from 'react-alert'
-
+import {numberWithCommas} from '../numberWithCommas'
 
 export const Transacciones = () => {
     const { loading, ventas, error} = useSelector(state=> state.sales)
@@ -40,7 +40,7 @@ export const Transacciones = () => {
                 {ventas && ventas.map(venta => (
                     <tr>
                         <td className="col-2 text-left">{venta.fechaCreacion}</td>
-                        <td className="col-2 text-right"> ${venta.valortotal}</td>
+                        <td className="col-2 text-right"> ${numberWithCommas(venta.valortotal)}</td>
                         <td className="col-2 text-left"> {venta.formapago}</td>
                     </tr>
                 ))}

@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect } from 'react'
-import MetaData from './layout/MetaData'
+import MetaData from '../layout/MetaData'
 import {useDispatch, useSelector} from 'react-redux'
-import { getProducts } from '../actions/productActions'
+import { getProducts } from '../../actions/productActions'
 import { useAlert} from 'react-alert'
 import { Link } from 'react-router-dom'
-import {numberWithCommas} from '../numberWithCommas'
+import {numberWithCommas} from '../../numberWithCommas'
 
 export const AdminProduct = () => {
     const { loading, productos, error} = useSelector(state=> state.products)
@@ -28,7 +28,7 @@ export const AdminProduct = () => {
                 <div className="col-9 text-center">
                     <MetaData title="Administrar Productos"></MetaData>
                 <br></br>
-                <h3> Administrar productos</h3>
+                <h3> Lista de productos</h3>
                <table className="table">
                 <thead className="table-az">
                     <tr>

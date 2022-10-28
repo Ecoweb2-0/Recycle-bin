@@ -262,9 +262,9 @@ footer {
 }
 
 #card_item_price {
-  color: #aefe69;
+  color: #000000;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 #checkout_btn,
@@ -273,6 +273,7 @@ footer {
   border-color: #9bfe69;
   margin-top: 2rem;
   border-radius: 5rem;
+  color:#000000
 }
 
 #view_order_details {

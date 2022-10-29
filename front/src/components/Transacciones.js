@@ -27,13 +27,13 @@ export const Transacciones = () => {
                     <MetaData title="Chatarreria online"></MetaData>
 
             <br></br>
-                <h3>Ventas realizadas</h3>
+                <h3>Consulta</h3>
                <table className="table col-6 text-center">
                 <thead className="table-az">
                     <tr>
                         <th className='col-2 text-center'>Fecha</th>
                         <th className='col-2 text-right'>Valor</th>
-                        <th className='col-2 text-left'>Método de Pago</th>
+                        <th className='col-2 text-left'>Total</th>
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">

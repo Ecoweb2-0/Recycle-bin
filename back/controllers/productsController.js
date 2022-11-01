@@ -7,7 +7,7 @@ const fetch =(url)=>import('node-fetch').then(({default:fetch})=>fetch(url)); //
 exports.getProducts=catchAsyncErrors(async (req,res,next) =>{
     const productos= await producto.find();
     if (!productos){
-        return next(new ErrorHandler("Informacion no encontrada",404))
+        return next(new ErrorHandler("Informacion no encontrada", 404))
     }
 
     res.status(200).json({
@@ -22,7 +22,7 @@ exports.getProductById= catchAsyncErrors( async (req, res, next)=>{
     const product= await producto.findById(req.params.id)
     
     if (!product){
-            return next(new ErrorHandler("Producto no encontrado",404))
+            return next(new ErrorHandler("Producto no encontrado", 404))
         }
     
     res.status(200).json({
@@ -36,8 +36,9 @@ exports.getProductById= catchAsyncErrors( async (req, res, next)=>{
 exports.updateProduct= catchAsyncErrors(async (req,res,next) =>{
     let product= await producto.findById(req.params.id) //Variable de tipo modificable
     if (!product){
-        return next(new ErrorHandler("Producto no encontrado",404))
+        return next(new ErrorHandler("Producto no encontrado", 404))
     }
+    
     //Si el objeto si existia, entonces si ejecuto la actualización
     product= await producto.findByIdAndUpdate(req.params.id, req.body, {
         new:true, //Valido solo los atributos nuevos o actualizados
@@ -55,9 +56,11 @@ exports.updateProduct= catchAsyncErrors(async (req,res,next) =>{
 //Eliminar un producto
 exports.deleteProduct= catchAsyncErrors(async (req,res,next) =>{
     const product= await producto.findById(req.params.id) //Variable de tipo modificable
+   
     if (!product){
-        return next(new ErrorHandler("Producto no encontrado",404))
+        return next(new ErrorHandler("Producto no encontrado", 404))
     }
+
     await product.remove();//Eliminamos el proceso
     res.status(200).json({
         success:true,
@@ -74,7 +77,6 @@ exports.newProduct=catchAsyncErrors(async(req,res,next)=>{
         product
     })
 })
-
 
 //HABLEMOS DE FETCH
 //Ver todos los productos

@@ -34,7 +34,7 @@ export const Dashboard = () => {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">Productos<br /> <b>123</b></div>
                                         </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/products">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/products">
                                             <span className="float-left">Ver Detalles</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>
@@ -49,7 +49,7 @@ export const Dashboard = () => {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">Ventas<br /> <b>34</b></div>
                                         </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/orders">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/orders">
                                             <span className="float-left">Ver Detalles</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>
@@ -64,7 +64,7 @@ export const Dashboard = () => {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">Usuarios<br /> <b>12</b></div>
                                         </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/users">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/users">
                                             <span className="float-left">Ver Detalles</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>

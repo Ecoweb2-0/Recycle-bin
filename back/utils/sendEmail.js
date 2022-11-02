@@ -10,7 +10,7 @@ const sendEmail = async options =>{
         }
       });
     const mensaje={
-        from: "Recycle_Bin Store <noreply@recyclebin.com>",
+        from: "Recycle Bin Store <noreply@recyclebin.com>",
         to: options.email,
         subject: options.subject,
         text: options.mensaje

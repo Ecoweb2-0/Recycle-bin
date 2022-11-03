@@ -31,9 +31,9 @@ nav {
   padding: 1rem 1rem;
 }
 
-navig {
+.navig {
   background-color: #9bfe69;
-  padding: 1rem 1rem;
+  padding: 0.8rem 0.8rem;
   color: #232f3e;
 }
 
@@ -207,6 +207,10 @@ footer {
 #product_image {
   margin-top: 9rem;
 }
+.basur {
+  width: 50px;
+  height: 30px;
+}
 
 /* Loader */
 .loader {
@@ -258,9 +262,9 @@ footer {
 }
 
 #card_item_price {
-  color: #aefe69;
+  color: #000000;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 #checkout_btn,
@@ -269,6 +273,7 @@ footer {
   border-color: #9bfe69;
   margin-top: 2rem;
   border-radius: 5rem;
+  color:#000000
 }
 
 #view_order_details {
@@ -298,7 +303,11 @@ footer {
   padding: 0.1rem 0.5rem;
 }
 
-
+.stockCounter input::-webkit-outer-spin-button,
+.stockCounter input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .form-control:disabled,
 .form-control[readonly] {
@@ -638,4 +647,19 @@ ul.CTAs a {
   background-color: #d3ffbd;
   padding: 0.8rem 0.8rem;
   color: #232f3e;  
+}
+.table-az{
+  background-color: #232f3e;
+  color:white;
+}
+
+.btn-circle {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.42857;
 }

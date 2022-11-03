@@ -1,14 +1,14 @@
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const producto=require("../models/productos");
-const ErrosHandler = require("../utils/errorHandler");
+const ErrorHandler = require("../utils/errorHandler");
 const fetch =(url)=>import('node-fetch').then(({default:fetch})=>fetch(url)); //Usurpación del require
 
 //Ver la lista de productos
-exports.getProducts= catchAsyncErrors( async (req,res,next) =>{
+exports.getProducts=catchAsyncErrors(async (req,res,next) =>{
     const productos= await producto.find();
     if (!productos){
-        return next(new ErrosHandler("Informacion no encontrada",404))
-}
+        return next(new ErrorHandler("Informacion no encontrada", 404))
+    }
 
     res.status(200).json({
         success:true,
@@ -22,8 +22,9 @@ exports.getProductById= catchAsyncErrors( async (req, res, next)=>{
     const product= await producto.findById(req.params.id)
     
     if (!product){
-            return next(new ErrosHandler("Producto no encontrado",404))
-    }
+            return next(new ErrorHandler("Producto no encontrado", 404))
+        }
+    
     res.status(200).json({
         success:true,
         message:"Aqui debajo encuentras información sobre tu producto: ",
@@ -32,14 +33,12 @@ exports.getProductById= catchAsyncErrors( async (req, res, next)=>{
 })
 
 //Update un producto
-exports.updateProduct= catchAsyncErrors( async (req,res,next) =>{
+exports.updateProduct= catchAsyncErrors(async (req,res,next) =>{
     let product= await producto.findById(req.params.id) //Variable de tipo modificable
-    if (!product){ //Verifico que el objeto no existe para finalizar el proceso
-            return res.status(404).json({
-            success:false,
-            message: 'No encontramos ese producto'
-        })
+    if (!product){
+        return next(new ErrorHandler("Producto no encontrado", 404))
     }
+    
     //Si el objeto si existia, entonces si ejecuto la actualización
     product= await producto.findByIdAndUpdate(req.params.id, req.body, {
         new:true, //Valido solo los atributos nuevos o actualizados
@@ -55,11 +54,12 @@ exports.updateProduct= catchAsyncErrors( async (req,res,next) =>{
 
 
 //Eliminar un producto
-exports.deleteProduct= catchAsyncErrors( async (req,res,next) =>{
+exports.deleteProduct= catchAsyncErrors(async (req,res,next) =>{
     const product= await producto.findById(req.params.id) //Variable de tipo modificable
+   
     if (!product){
-        return next(new ErrosHandler("Producto no encontrado",404))
-}
+        return next(new ErrorHandler("Producto no encontrado", 404))
+    }
 
     await product.remove();//Eliminamos el proceso
     res.status(200).json({
@@ -69,20 +69,19 @@ exports.deleteProduct= catchAsyncErrors( async (req,res,next) =>{
 })
 
 //Crear nuevo producto /api/productos
-exports.newProduct= catchAsyncErrors( async(req,res,next)=>{
+exports.newProduct=catchAsyncErrors(async(req,res,next)=>{
+    req.body.user=req.user.id;
     const product= await producto.create(req.body);
-
     res.status(201).json({
         success:true,
         product
     })
 })
 
-
 //HABLEMOS DE FETCH
 //Ver todos los productos
 function verProductos(){
-    fetch('http://127.0.0.1:4000/api/productos')
+    fetch('http://localhost:4000/api/productos')
     .then(res=>res.json())
     .then(res=>console.log(res))
     .catch(err=>console.error(err))
@@ -92,10 +91,10 @@ function verProductos(){
 
 //Ver por id
 function verProductoPorID(id){
-    fetch('http://127.0.0.1:4000/api/producto/'+id)
+    fetch('http://localhost:4000/api/producto/'+id)
     .then(res=>res.json())
     .then(res=>console.log(res))
     .catch(err=>console.error(err))
 }
 
-//verProductoPorID('6348695684579a6e95bf8b12'); Probamos el metodo con un id
+//verProductoPorID('63456a8d9163cb9dbbcaa235'); Probamos el metodo con un id

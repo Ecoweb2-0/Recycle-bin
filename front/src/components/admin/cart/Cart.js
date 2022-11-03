@@ -1,9 +1,9 @@
 import React, { Fragment, useState} from 'react'
-import MetaData from './layout/MetaData'
 import { Link } from 'react-router-dom'
-import {numberWithCommas} from '../numberWithCommas'
+import MetaData from '../layout/MetaData'
 
-export const Carrito = () => {
+
+const Cart = () => {
     const [quantity, setQuantity] = useState(1)
 
     const increaseQty = () => {
@@ -22,27 +22,33 @@ export const Carrito = () => {
     //Json de ejemplo
    let cartItems=[
         {
-            "_id": "6351a0ac9dc6821674880d59",
-            "nombre": "Plástico PET Cristal",
-            "precio": 2815000,
-            "imagen": "./images/PETCristal.jpg",
+            "_id": "63513206109735e58d94addd",
+            "nombre": "Agility Dog Creamy Food",
+            "precio": 69000,
+            "imagen": "./images/productos/agility_blando_perros.png",
+            "inventario": 40,
+        },
+        {
+            "_id": "63513298109735e58d94ade0",
+            "nombre": "Chunky Cachorros alimento humedo",
+            "precio": 23000,
+            "imagen": "./images/productos/chunky_blando_perros.jpeg",
+            "inventario": 120,
+        },
+        {
+            "_id": "635132ea109735e58d94ade3",
+            "nombre": "Chunky gatitos alimento humedo",
+            "precio": 18000,
+            "imagen": "./images/productos/felix_blando_gatos.jpeg",
             "inventario": 20,
         },
         {
-            "_id": "63519e876757fd7f1330ca64",
-            "nombre": "Aluminio por tonelad",
-            "precio": 5111000,
-            "imagen": "./images/Aluminio.jpg",
-            "inventario": 5,
-        },
-        {
-            "_id": "63519fc16757fd7f1330ca67",
-            "nombre": "Plástico Rígido por Tonelada",
-            "precio": 1911000,
-            "imagen": "./images/PlasticoRigido.jpg",
-            "inventario": 3,
-        },
-    
+            "_id": "63513379109735e58d94ade6",
+            "nombre": "Purina Pedegree Perros alimento humedo",
+            "precio": 20000,
+            "imagen":  "./images/productos/pedegree_blando_perros.jpeg",
+            "inventario": 200,
+        }
     ]
 
 cartItems = Array.from(cartItems);
@@ -69,11 +75,14 @@ cartItems = Array.from(cartItems);
                                             <div className="col-4 col-lg-3">
                                                 <img src={item.imagen} alt={item.nombre} height="90" width="115" />
                                             </div>
+
                                             <div className="col-5 col-lg-3">
                                                 <Link to={`/producto/${item._id}`}>{item.nombre}</Link>
                                             </div>
+
+
                                             <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-                                                <p id="card_item_price">${numberWithCommas(item.precio)}</p>
+                                                <p id="card_item_price">${item.precio}</p>
                                             </div>
 
                                             <div className="col-4 col-lg-3 mt-4 mt-lg-0">
@@ -102,9 +111,8 @@ cartItems = Array.from(cartItems);
                             <div id="order_summary">
                                 <h4>Total de la Compra</h4>
                                 <hr />
-                                <p>Subtotal:  <span className="order-summary-values">$9.837.000</span></p>
-                                <p>Transporte: <span className="order-summary-values">$50.000</span></p>
-                                <p>Total: <span className="order-summary-values">$9.887.000</span></p>
+                                <p>Subtotal:  <span className="order-summary-values">$350.000</span></p>
+                                <p>Est. total: <span className="order-summary-values">$380.000</span></p>
 
                                 <hr />
                                 <button id="checkout_btn" className="btn btn-primary btn-block">Comprar!</button>
@@ -117,4 +125,4 @@ cartItems = Array.from(cartItems);
     )
 }
 
-export default Carrito
+export default Cart

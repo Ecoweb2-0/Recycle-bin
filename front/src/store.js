@@ -8,8 +8,7 @@ const reducer= combineReducers ({
     products:productsReducer,
     productDetails: productDetailsReducer,
     sales:salesReducer,
-   })
-
+})
 
 let initialState = {}
 

@@ -7,6 +7,7 @@ import { useAlert} from 'react-alert'
 import { Carousel } from 'react-bootstrap'
 
 
+
 export const ProductDetails = () => {
    const {loading, product, error} = useSelector(state =>state.productDetails)
    const {id} =useParams();

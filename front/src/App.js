@@ -8,9 +8,9 @@ import { ProductDetails } from './components/products/ProductDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {Carrito} from './components/Carrito';
 import { Transacciones } from './components/Transacciones';
-
-
-import AdminProduct from './components/AdminProduct';
+import Newproduct from './components/admin/Newproduct';
+import ProductsList from './components/admin/ProductsList';
+import Dashboard from './components/admin/Dashboard';
 
 function App() {
   return (
@@ -24,8 +24,9 @@ function App() {
             <Route path="/Carrito" element={<Carrito />}/>
             <Route path="/ventas" element={<Transacciones />}/>
             <Route path="/producto/:id" element={<ProductDetails />}/>
-            
-            <Route path="/Admin-product" element={<AdminProduct />}/>
+            <Route path="/nuevoProducto" element={<Newproduct />}/>
+            <Route path="/productList" element={<ProductsList />}/>
+            <Route path="/dashboard" element={<Dashboard />}/>
           </Routes>
         </div>
         <Footer />

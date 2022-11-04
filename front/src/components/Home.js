@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import { getProducts } from '../actions/productActions'
 import { Link } from 'react-router-dom'
 import { useAlert} from 'react-alert'
+import {numberWithCommas} from '../numberWithCommas'
 
 export const Home = () => {
     const { loading, productos, error} = useSelector(state=> state.products)
@@ -41,7 +42,7 @@ export const Home = () => {
                                     </div>
                                     <span id="No_de_opiniones"> {producto.numCalificaciones} Reviews</span>
                                 </div>
-                                <p className='card-text'>${producto.precio}</p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
+                                <p className='card-text'>${numberWithCommas(producto.precio)}</p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
                                     Ver detalle
                                 </Link>
                             </div>

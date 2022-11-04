@@ -1,13 +1,15 @@
-const express= require("express")
+const express=require("express")
 const router=express.Router();
 
-const {getProducts, newProduct, getProductById, updateProduct, deleteProduct} =require("../controllers/productsController")
+const {getProducts, newProduct, getProductById, updateProduct, deleteProduct} = require("../controllers/productsController"); //Traemos la respuesta json desde el controlador
+const { isAuthenticatedUser , authorizeRoles} = require("../middleware/auth");
 
-router.route( '/productos').get(getProducts) // ruta para ver productos
-router.route('/producto/nuevo').post(newProduct); // establecemos la ruta de nuevo producto
-router.route('/producto/:id').get(getProductById);
-router.route('/producto/:id').put(updateProduct); //Ruta para actualizar
-router.route('/producto/:id').delete(deleteProduct); // Ruta para eliminar
-
+//Probemos autenticación
+router.route('/productos').get(getProducts)  //Establecemos desde que ruta queremos ver el getProducts
+router.route('/producto/nuevo').post(isAuthenticatedUser, authorizeRoles("admin"), newProduct); //establecemos la ruta
+router.route('/producto/:id').get(getProductById); //Ruta para consultar por id
+router.route('/producto/:id').put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct);//Creacion de la ruta de actualizacion
+router.route('/producto/:id').delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct); //Creacion de la ruta de eliminacion por id
+ 
 
 module.exports=router;

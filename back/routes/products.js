@@ -25,4 +25,3 @@ router.route("/reviews").get(isAuthenticatedUser, getProductReviews)
 router.route("/review").delete(isAuthenticatedUser, deleteReview)
 
 module.exports=router;
-Footer

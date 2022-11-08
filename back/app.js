@@ -11,14 +11,15 @@ app.use(cookieParser());
 const productos= require("./routes/products")
 const ventas= require("./routes/sales")
 const usuarios=require("./routes/auth")
+const ordenes=require("./routes/orders")
 
 //ruta para el navegador // sujeto a decisión
 app.use('/api',productos) 
 app.use('/api',usuarios)
 app.use('/api',ventas)
+app.use('/api', ordenes)
 
 //Manejo de errores
 app.use(errorMiddleware)
-
 
 module.exports=app

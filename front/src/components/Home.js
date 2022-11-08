@@ -32,7 +32,7 @@ export const Home = () => {
             {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
                     <MetaData title="Chatarrería Online"></MetaData>
-                    <h1 id="encabezado_productos">Ultimos Productos</h1>
+                    <h1 id="encabezado_productos" className='text-center'>Productos</h1>
 
                     <section id="productos" className='container mt-5'>
                         <div className='row'>
@@ -65,10 +65,7 @@ export const Home = () => {
                         itemsCountPerPage={resPerPage}
                         totalItemsCount={productsCount}
                         onChange={setCurrentPageNo}
-                        nextPageText={'Siguiente'}
-                        prevPageText={'Anterior'}
-                        firstPageText={'Primera'}
-                        lastPageText={'Ultima'}
+                        count={10} shape="rounded" variant="outlined" 
                         itemClass='page-item'
                         linkClass='page-link'
                         />

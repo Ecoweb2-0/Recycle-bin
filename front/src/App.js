@@ -27,6 +27,7 @@ function App() {
             <Route path="/producto/nuevo" element={<Newproduct />}/>
             <Route path="/Admin-product" element={<AdminProduct />}/>
             <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/search/:keyword" element={<Home />}/>
           </Routes>
         </div>
         <Footer />

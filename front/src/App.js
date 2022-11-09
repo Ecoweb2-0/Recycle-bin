@@ -2,15 +2,15 @@ import './App.css';
 import React from 'react';
 import Header from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import {Home} from './components/Home';
+import Home from './components/Home';
 import { ProductDetails } from './components/products/ProductDetails';
 //Router traido desde react-router-dom (no confundir con el de express)
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {Carrito} from './components/Carrito';
-import { Transacciones } from './components/Transacciones';
-import Newproduct from './components/admin/Newproduct';
-import AdminProduct from './components/admin/AdminProduct';
 import Dashboard from './components/admin/Dashboard';
+import ProductsList from './components/admin/ProductsList';
+
+import Cart from './components/cart/Cart';
+
 
 function App() {
   return (
@@ -21,13 +21,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/Home" element={<Home />}/>
-            <Route path="/Carrito" element={<Carrito />}/>
-            <Route path="/ventas" element={<Transacciones />}/>
             <Route path="/producto/:id" element={<ProductDetails />}/>
-            <Route path="/producto/nuevo" element={<Newproduct />}/>
-            <Route path="/Admin-product" element={<AdminProduct />}/>
             <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/productList" element={<ProductsList />}/>
+           
             <Route path="/search/:keyword" element={<Home />}/>
+            <Route path="/carrito" element={<Cart />}/>
           </Routes>
         </div>
         <Footer />
@@ -37,3 +36,4 @@ function App() {
 }
 
 export default App;
+

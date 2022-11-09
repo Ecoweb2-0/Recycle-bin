@@ -7,14 +7,12 @@ import { useAlert} from 'react-alert'
 import { Carousel } from 'react-bootstrap'
 
 
-
 export const ProductDetails = () => {
    const {loading, product, error} = useSelector(state =>state.productDetails)
    const {id} =useParams();
    const dispatch= useDispatch();
    const alert= useAlert();
    const [quantity, setQuantity] = useState(1)
-
 
    useEffect(() => {
     dispatch(getProductDetails(id))
@@ -48,9 +46,7 @@ export const ProductDetails = () => {
     {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
       <Fragment>
       <MetaData title={product.nombre}></MetaData>
-      <br></br>
       <div className='row d-flex justify-content-around'>
-      
           <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
               <Carousel pause='hover'>
                 {product.imagen && product.imagen.map(img =>(
@@ -131,7 +127,4 @@ export const ProductDetails = () => {
     
   )
 }
-
-
-
 

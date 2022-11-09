@@ -1,92 +1,110 @@
-import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import React from 'react'
-import InputGroup from 'react-bootstrap/InputGroup';
-
-function Newproduct() {
-  return (
-    <Form>
-      <br></br>
-      <h2>Ingreso nuevos materiales</h2>
-      <br></br>
-      <Container>
-      <Row>
-      <Col>
-        <Form.Group className="mb-3" controlId="productForm.nombre">
-        <Form.Label>Nombre del material</Form.Label>
-        <Form.Control type="String" placeholder="Ingrese un nombre para el material que desea vender" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="productForm.precio">
-        <Form.Label>Precio</Form.Label>
-      <InputGroup className="mb-3">
-        <InputGroup.Text>$</InputGroup.Text>
-        <Form.Control aria-label="Amount (to the nearest dollar)" placeholder="Ingrese un valor sin puntos ni comas"/>
-        <InputGroup.Text>COP</InputGroup.Text>
-      </InputGroup>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="productForm.descripcion">
-        <Form.Label>Descripción</Form.Label>
-        <Form.Control as="textarea" rows={3} type="String" placeholder="Haga una descripción del material que desea ingresar"/>
-      </Form.Group>
-      </Col>
-      <Col xs={6}><Form.Group controlId="productForm.imagen" className="mb-3">
-        <Form.Label>Imágenes del material</Form.Label>
-        <Form.Control type="file" multiple />
-      </Form.Group>
-      <Form.Label>Categorí­a y tipo de material </Form.Label>
-      <br></br>
-      <Form.Select size="lg">
-        <option>Despliegue las opciones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;
-        </option>
-        <option value="1">Cartón</option>
-        <option value="2">Metal - Aluminio</option>
-        <option value="3">Metal - Cobre</option>
-        <option value="4">Metal - Hierro</option>
-        <option value="5">Papel - Archivo</option>
-        <option value="6">Papel - PeriÃ³dico</option>
-        <option value="7">Papel - Plegadiza</option>
-        <option value="8">Papel - Tetrapak</option>
-        <option value="9">Plástico - Icopor</option>
-        <option value="10">Plástico - PET Cristal</option>
-        <option value="11">Plástico - PET Otros</option>
-        <option value="12">Plástico - Flexible</option>
-        <option value="13">Plástico - Mezclado</option>
-        <option value="14">Plástico - Rí­gido</option>
-        <option value="15">Vidrio</option>
-        <option value="16">Otros</option>
-      </Form.Select>
-      <br></br>
-      <br></br>
-
-      <Form.Group className="mb-3" controlId="productForm.inventario">
-        <Form.Label>Inventario</Form.Label>
-        <Form.Control type="Number" placeholder="Ingrese un valor sin puntos ni comas" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="productForm.inventario">
-        <Form.Label>Vendedor</Form.Label>
-        <Form.Control type="String" placeholder="Nombre de la persona que vende el material" />
-      </Form.Group>
-
-    
-      <div className='btn btn-success' value="Submit">Enviar</div>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-      <div className='btn btn-danger' value="Submit">Cancelar</div>
+import React, { Fragment } from 'react'
+import MetaData from '../layout/MetaData'
+import Sidebar from './Sidebar'
 
 
-      </Col>
-      </Row>
-      </Container>
-      </Form>
-  );
+const NewProduct = () => {
+
+
+    return (
+        <Fragment>
+            <MetaData title={'Nuevo Producto'} />
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <Sidebar />
+                </div>
+
+                <div className="col-12 col-md-10">
+                    <Fragment>
+                        <div className="wrapper my-5">
+                            <form className="shadow-lg"  encType='multipart/form-data'>
+                                <h1 className="mb-4">Nuevo Producto</h1>
+
+                                <div className="form-group">
+                                    <label htmlFor="name_field">Nombre</label>
+                                    <input
+                                        type="text"
+                                        id="name_field"
+                                        className="form-control"
+                                
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="price_field">Price</label>
+                                    <input
+                                        type="text"
+                                        id="price_field"
+                                        className="form-control"
+                                        
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="description_field">Descripcion</label>
+                                    <textarea className="form-control" id="description_field" rows="8"></textarea>
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="category_field">Categoria</label>
+                                    <select className="form-control" id="category_field">
+
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="stock_field">Inventario</label>
+                                    <input
+                                        type="number"
+                                        id="stock_field"
+                                        className="form-control"
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="seller_field">Vendedor</label>
+                                    <input
+                                        type="text"
+                                        id="seller_field"
+                                        className="form-control"
+                                    
+                                    />
+                                </div>
+
+                                <div className='form-group'>
+                                    <label>Imagenes</label>
+
+                                    <div className='custom-file'>
+                                        <input
+                                            type='file'
+                                            name='product_images'
+                                            className='custom-file-input'
+                                            id='customFile'
+                                            multiple
+                                        />
+                                        <label className='custom-file-label' htmlFor='customFile'>
+                                            Seleccione Imagen
+                                     </label>
+                                    </div>
+
+                                </div>
+
+
+                                <button
+                                    id="login_button"
+                                    type="submit"
+                                    className="btn btn-block py-3"
+                                >
+                                    CREAR
+                                </button>
+
+                            </form>
+                        </div>
+                    </Fragment>
+                </div>
+            </div>
+
+        </Fragment>
+    )
 }
 
-export default Newproduct
+export default NewProduct

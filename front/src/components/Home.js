@@ -32,7 +32,8 @@ export const Home = () => {
             {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
                     <MetaData title="Los mejores productos reciclados del mercado"></MetaData>
-                    <h1 id="encabezado_productos">Los mejores Productos</h1>
+                    <h1 id="encabezado_productos" className='text-center'>Productos</h1>
+                    
 
                     <section id="productos" className='container mt-5'>
                         <div className='row'>

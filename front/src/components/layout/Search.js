@@ -24,7 +24,7 @@ export const Search = () => {
         type="text"
         id="search_field"
         class="form-control"
-        placeholder='Que producto busca?...'
+        placeholder='¿Que producto estas buscando?...'
         onChange={(e) => setKeyword(e.target.value)}
         />
         

@@ -86,7 +86,7 @@ export const ProductsList = () => {
                     <Fragment>
                         <h1 className="my-5">Productos Registrados</h1>
 
-                        {loading ? <span className='loader'></span> :(
+                        {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
                             <MDBDataTable
                                 data={setProducts()}
                                 className="px-3 text-center"

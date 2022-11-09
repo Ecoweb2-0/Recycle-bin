@@ -144,16 +144,16 @@ exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
 exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     const product = await producto.findById(req.query.idProducto);
 
-    const opiniones = product.opiniones.filter(opinion =>
+    const opi = product.opiniones.filter(opinion =>
         opinion._id.toString() !== req.query.idReview.toString());
 
-    const numCalificaciones = opiniones.length;
+    const numCalificaciones = opi.length;
 
-    const calificacion = product.opiniones.reduce((acc, Opinion) =>
-        Opinion.rating + acc, 0) / opiniones.length;
+    const calificacion = opi.reduce((acc, Opinion) =>
+        Opinion.rating + acc, 0) / opi.length;
 
     await producto.findByIdAndUpdate(req.query.idProducto, {
-        opiniones,
+        opi,
         calificacion,
         numCalificaciones
     }, {
@@ -171,7 +171,7 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
 //HABLEMOS DE FETCH
 //Ver todos los productos
 function verProductos() {
-    fetch('http://127.0.0.1:4000/api/productos')
+    fetch('http://localhost:4000/api/productos')
         .then(res => res.json())
         .then(res => console.log(res))
         .catch(err => console.error(err))
@@ -181,7 +181,7 @@ function verProductos() {
 
 //Ver por id
 function verProductoPorID(id) {
-    fetch('http://127.0.0.1:4000/api/producto/' + id)
+    fetch('http://localhost:4000/api/producto/' + id)
         .then(res => res.json())
         .then(res => console.log(res))
         .catch(err => console.error(err))

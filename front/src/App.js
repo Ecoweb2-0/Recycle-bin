@@ -8,9 +8,10 @@ import { ProductDetails } from './components/products/ProductDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './components/admin/Dashboard';
 import ProductsList from './components/admin/ProductsList';
-import NewProduct from './components/admin/Newproduct';
-import Carrito from './components/Carrito';
-import Transacciones from './components/Transacciones';
+import NewProduct from './components/admin/newProduct';
+import Cart from './components/cart/Cart';
+import { Login } from './components/user/Login';
+
 
 function App() {
   return (
@@ -21,13 +22,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/Home" element={<Home />}/>
-            <Route path="/Carrito" element={<Carrito />}/>
-            <Route path="/ventas" element={<Transacciones />}/>
             <Route path="/producto/:id" element={<ProductDetails />}/>
             <Route path="/dashboard" element={<Dashboard />}/>
             <Route path="/productList" element={<ProductsList />}/>
             <Route path="/nuevoProducto" element={<NewProduct />}/>
             <Route path="/search/:keyword" element={<Home />}/>
+            <Route path="/carrito" element={<Cart />}/>
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
         <Footer />

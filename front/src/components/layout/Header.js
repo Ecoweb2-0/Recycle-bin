@@ -13,9 +13,12 @@ const Header = () => {
                         <img src="./images/logo.png" alt="Ecoweb Logo" height={80}></img>
                     </div>
                 </div>
-                <div className='col-12 col-md-6 mt-2 mt-md-0'>
-                <Search />
+                <div className='col-12 col-md-4 mt-2 mt-md-0'>
+                 {/*Aqui va buscar*/}
+                 <Search />
                 </div>
+                {/*Boton inicio sesión*/}
+                <Link to="/login" className='btn ml-4' id="login_btn">Login</Link>
                 <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
                     <div className="ml-4 dropdown d-inline">
                         <Link to="#!" className="btn dropdown-toggle text-white mr-4" type="button"
@@ -33,6 +36,7 @@ const Header = () => {
                         <span className="ml-1" id="cart_count">2</span></Link>
                 </div>
 
+
             </nav>
             <tr className="navbar row text-center navig">
                 <a className="link_user col-12 col-md-2" href="/Home" >Inicio</a>
@@ -40,7 +44,7 @@ const Header = () => {
                 <a className="link_user col-12 col-md-2" href="/Home" >Nuevos Producto</a>
                 <a className="link_user col-12 col-md-2" href="/Home" >Proveedores</a>
                 <a className="link_user col-12 col-md-2" href="/Home" >Contactenos</a>
-                <a className="link_user col-12 col-md-2" href="/Carrito" >Carrito</a>
+                <a className="link_user col-12 col-md-2" href="/carrito" >Carrito</a>
                 
             
             </tr>

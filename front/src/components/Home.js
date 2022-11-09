@@ -43,11 +43,11 @@ export const Home = () => {
                                 className='t-slider'
                                 marks={{
                                     5000: `$5000`,
-                                    6000000: `$6000000`
+                                    10000000: `$10000000`
                                 }}
                                 min={5000}
-                                max={6000000}
-                                defaultValue={[5000, 6000000]}
+                                max={10000000}
+                                defaultValue={[5000, 10000000]}
                                 tipFormatter={value => `$${value}`}
                                 tipProps={{
                                     placement: 'top',
@@ -84,16 +84,13 @@ export const Home = () => {
 
                     <div className='d-flex justify-content-center mt-5'>
                         <Pagination
-                            activePage={currentPage}
-                            itemsCountPerPage={resPerPage}
-                            totalItemsCount={productsCount}
-                            onChange={setCurrentPageNo}
-                            nextPageText={'Siguiente'}
-                            prevPageText={'Anterior'}
-                            firstPageText={'Primera'}
-                            lastPageText={'Ultima'}
-                            itemClass='page-item'
-                            linkClass='page-link'
+                        activePage={currentPage}
+                        itemsCountPerPage={resPerPage}
+                        totalItemsCount={productsCount}
+                        onChange={setCurrentPageNo}
+                        count={10} shape="rounded" variant="outlined" 
+                        itemClass='page-item'
+                        linkClass='page-link'
                         />
                     </div>
 

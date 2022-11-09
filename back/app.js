@@ -7,19 +7,16 @@ const cookieParser= require("cookie-parser")
 app.use(express.json());
 app.use(cookieParser());
 
-//importar la ruta
-const productos= require("./routes/products")
-const ventas= require("./routes/sales")
+//Importar rutas
+const productos=require("./routes/products")
 const usuarios=require("./routes/auth")
 const ordenes=require("./routes/orders")
 
-//ruta para el navegador // sujeto a decisión
-app.use('/api',productos) 
+app.use('/api',productos) //Sujeto a decision (ruta del navegador)
 app.use('/api',usuarios)
-app.use('/api',ventas)
 app.use('/api', ordenes)
 
-//Manejo de errores
+//MiddleWares para manejar errores
 app.use(errorMiddleware)
 
 module.exports=app

@@ -1,4 +1,4 @@
-import {
+import { 
     ALL_PRODUCTS_REQUEST,
     ALL_PRODUCTS_SUCCESS,
     ALL_PRODUCTS_FAIL,
@@ -6,72 +6,71 @@ import {
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_FAIL,
     CLEAR_ERRORS
-} from "../constants/productConstants";
+} from '../constants/productConstants';
 
-export const productsReducer = (state = { products: [] }, action) => {
-    switch (action.type) {
+export const productsReducer = ( state = { products : [] }, action) => {
+    switch(action.type) {
+        
         case ALL_PRODUCTS_REQUEST:
-            return {
+            return{
                 loading: true,
-                products: []
+                products:[]
             }
-
+        
         case ALL_PRODUCTS_SUCCESS:
-            return {
+            return{
                 loading: false,
                 products: action.payload.products,
                 productsCount: action.payload.productsCount,
                 resPerPage: action.payload.resPerPage,
                 filteredProductsCount: action.payload.filteredProductsCount
             }
-
+        
         case ALL_PRODUCTS_FAIL:
-            return {
+            return{
                 loading: false,
                 error: action.payload
             }
-
+        
         case CLEAR_ERRORS:
-            return {
+            return{
                 ...state,
                 error: null
-            }
-
-
+             }
+        
         default:
             return state;
     }
 }
 
-//REDUCER PARA TENER TODOS LOS DETALLES
-export const productDetailsReducer = (state = { product: {} }, action) => {
-    switch (action.type) {
-
+export const productDetailsReducer = ( state = { product: {}}, action) => {
+    switch(action.type) {
+        
         case PRODUCT_DETAILS_REQUEST:
-            return {
+            return{
                 ...state,
                 loading: true
             }
-
+        
         case PRODUCT_DETAILS_SUCCESS:
-            return {
+            return{
                 loading: false,
-                product: action.payload
+                product: action.payload.product
             }
-
+        
         case PRODUCT_DETAILS_FAIL:
-            return {
+            return{
                 ...state,
                 error: action.payload
             }
-
+        
         case CLEAR_ERRORS:
-            return {
+            return{
                 ...state,
                 error: null
-            }
-
+             }
+        
         default:
-            return state
+            return state;
     }
 }

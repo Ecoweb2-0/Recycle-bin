@@ -19,6 +19,7 @@ export const ProductsList = () => {
         }
 
         dispatch(getProducts());
+        // eslint-disable-next-line
     }, [dispatch])
 
     const setProducts = () => {

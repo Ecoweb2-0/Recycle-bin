@@ -11,7 +11,7 @@ import 'rc-slider/assets/index.css'
 export const Home = () => {
     const params = useParams();
     const keyword = params.keyword;
-    const [precio, setPrecio] = useState([100, 1000000])
+    const [precio, setPrecio] = useState([5000, 10000000])
     const [currentPage, setCurrentPage] = useState(1)
     const { loading, products, error, resPerPage, productsCount } = useSelector(state => state.products)
     const alert = useAlert();

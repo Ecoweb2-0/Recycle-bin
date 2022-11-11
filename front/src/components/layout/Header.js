@@ -41,9 +41,9 @@ const Header = () => {
             <tr className="navbar row text-center navig">
                 <a className="link_user col-12 col-md-2" href="/Home" >Inicio</a>
                 <a className="link_user col-12 col-md-2" href="/" >Promociones</a>
-                <a className="link_user col-12 col-md-2" href="/nuevoProducto" >Nuevos Producto</a>
+                <a className="link_user col-12 col-md-2" href="/nuevoProducto" >Nuevos Productos</a>
                 <a className="link_user col-12 col-md-2" href="/" >Proveedores</a>
-                <a className="link_user col-12 col-md-2" href="/" >Contactenos</a>
+                <a className="link_user col-12 col-md-2" href="/" >Contáctenos</a>
                 <a className="link_user col-12 col-md-2" href="/carrito" >Carrito</a>
                 
             

@@ -38,13 +38,22 @@ const productosSchema=mongoose.Schema({
         required:[true,"Por favor seleccione la categoria del producto."],
         enum:{
             values:[
-                "Alimento seco",
-                "Alimento humedo",
-                "Accesorios",
-                "Cuidado e Higiene",
-                "Medicamentos",
-                "Snacks",
-                "Juguetes"
+                "Cartón",
+                "Metal - Aluminio",
+                "Metal - Cobre",
+                "Metal - Hierro",
+                "Papel - Archivo",
+                "Papel - Periódico",
+                "Papel - Plegadiza",
+                "Papel - Tetrapak",
+                "Plástico - Icopor",
+                "Plástico - PET Cristal",
+                "Plástico - PET Otros",
+                "Plástico - Flexible",
+                "Plástico - Mezclado",
+                "Plástico - Rí­gido",
+                "Vidrio",
+                "Otros"
             ]
         }
     },

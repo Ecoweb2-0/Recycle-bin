@@ -58,6 +58,7 @@ export const Home = () => {
                                 onChange={precio => setPrecio(precio)}
                             ></Slider>
                             <br></br>
+                            <br></br>
 
                             {products && products.map(producto => (
                                 <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>

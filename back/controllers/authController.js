@@ -28,7 +28,7 @@ exports.loginUser = catchAsyncErrors(async(req, res, next)=>{
 
     //revisar si los campos estan completos
     if (!email || !password){
-        return next(new ErrorHandler("Por favor ingrese email & Contraseña", 400))
+        return next(new ErrorHandler("Por favor ingrese email y Contraseña", 400))
     }
 
     //Buscar al usuario en nuestra base de datos
@@ -66,7 +66,7 @@ exports.forgotPassword = catchAsyncErrors ( async( req, res, next) =>{
     const user= await User.findOne({email: req.body.email});
 
     if (!user){
-        return next(new ErrorHandler("Usuario no se encuentra registrado", 404))
+        return next(new ErrorHandler("El usuario no se encuentra registrado", 404))
     }
     const resetToken= user.genResetPasswordToken();
     

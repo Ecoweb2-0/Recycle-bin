@@ -3,12 +3,12 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools} from 'redux-devtools-extension';
 import { productsReducer, productDetailsReducer } from './reducer/productReducer';
 import { authReducer } from './reducer/userReducer';
-import { orderDetailsReducer, ordersReducer } from './reducer/orderReducer';
+import {ordersReducer, orderDetailsReducer} from './reducer/orderReducer';
 
 const reducer= combineReducers ({
     products:productsReducer,
     productDetails: productDetailsReducer,
-    authUser: authReducer,
+    auth: authReducer,
     orders: ordersReducer,
     orderDetails: orderDetailsReducer
 })

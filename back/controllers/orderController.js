@@ -119,5 +119,4 @@ exports.deleteOrder = catchAsyncErrors(async (req, res, next)=>{
         message:"Orden eliminada correctamente"
     })
 
-
 })

@@ -5,12 +5,12 @@ const sendEmail = async options =>{
         host: "smtp.office365.com",
         port: 587,
         auth: {
-          user: "tucorreomicrosoft",
-          pass: "tuContraseñaDeAplicacion"
+          user: "caritoleal@hotmail.com",
+          pass: "nefweiqoef"
         }
       });
     const mensaje={
-        from: "Recycle bin Store <tuCorreoMicrosoft>",
+        from: "Recycle bin Store <caritoleal@hotmail.com>",
         to: options.email,
         subject: options.subject,
         text: options.mensaje

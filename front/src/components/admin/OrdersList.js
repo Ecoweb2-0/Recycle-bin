@@ -63,7 +63,7 @@ export const OrdersList = () => {
                                     <i className="fa fa-eye"></i>
                                 </Link>
                                 <Link to={`/editar/orden/${order._id}`} className="btn btn-warning py-1 px-2 mr-2">
-                                    <i class="fa fa-pencil"></i>
+                                    <i className="fa fa-pencil"></i>
                                 </Link>
                                 <Link to="/" className="btn btn-danger py-1 px-2">
                                     <i className="fa fa-trash"></i>
@@ -87,7 +87,7 @@ export const OrdersList = () => {
                     <Fragment>
                         <h1 className="my-5">Ordenes Registradas</h1>
 
-                        {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
+                        {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
                             <MDBDataTable
                                 data={setOrders()}
                                 className="px-3 text-center"

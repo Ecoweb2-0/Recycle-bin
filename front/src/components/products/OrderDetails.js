@@ -47,7 +47,7 @@ export const OrderDetails = () => {
 
   return (
    <Fragment>
-    {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
+    {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
       <Fragment>
       <MetaData title={order.nombre}></MetaData>
       <br></br>

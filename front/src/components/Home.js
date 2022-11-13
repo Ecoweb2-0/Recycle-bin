@@ -31,7 +31,7 @@ export const Home = () => {
 
     return (
         <Fragment>
-            {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
+            {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
                     <MetaData title="Chatarrería Online"></MetaData>
                     <h1 id="encabezado_productos" className="text-center">Productos</h1>
@@ -57,6 +57,8 @@ export const Home = () => {
                                 value={precio}
                                 onChange={precio => setPrecio(precio)}
                             ></Slider>
+                            <br></br>
+                            <br></br>
 
                             {products && products.map(producto => (
                                 <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>
@@ -83,13 +85,13 @@ export const Home = () => {
 
                     <div className='d-flex justify-content-center mt-5'>
                         <Pagination
-                            activePage={currentPage}
-                            itemsCountPerPage={resPerPage}
-                            totalItemsCount={productsCount}
-                            onChange={setCurrentPageNo}
-                            count={10} shape="rounded" variant="outlined"
-                            itemClass='page-item'
-                            linkClass='page-link'
+                        activePage={currentPage}
+                        itemsCountPerPage={resPerPage}
+                        totalItemsCount={productsCount}
+                        onChange={setCurrentPageNo}
+                        count={10} shape="rounded" variant="outlined" 
+                        itemClass='page-item'
+                        linkClass='page-link'
                         />
                     </div>
 

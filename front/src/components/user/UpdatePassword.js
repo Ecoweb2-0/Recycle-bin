@@ -29,7 +29,7 @@ export const UpdatePassword = () => {
                 type: UPDATE_PASSWORD_RESET
             })
         }
-    },[dispatch, alert, error, isUpdated])
+    },[dispatch, alert, error, isUpdated, navigate])
 
 const submitHandler= (e)=>{
     e.preventDefault();

@@ -40,7 +40,7 @@ export const UpdateProfile = () => {
                 type: UPDATE_PROFILE_RESET
             })
         }
-    }, [dispatch, alert, error, isUpdated])
+    }, [dispatch, alert, error, isUpdated, navigate, user])
 
     const submitHandler = (e) => {
         e.preventDefault();

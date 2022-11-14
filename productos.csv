@@ -1,0 +1,5 @@
+__v,_id,calificacion,categoria,descripcion,fechaCreacion,imagen,inventario,nombre,numCalificaciones,opiniones,precio,vendedor
+0,63519e876757fd7f1330ca64,5,Metal,Aluminio por tonelada,2022-10-20T19:16:23.771Z,[{"public_id":"product/al1","url":"./images/Aluminio.jpg","_id":{"$oid":"63519e876757fd7f1330ca65"}}],5,Aluminio por tonelada,2,[],5111000,Fabiancho
+0,63519fc16757fd7f1330ca67,3.5,Plastico,Plástico Rígido por Tonelada,2022-10-20T19:21:37.235Z,[{"public_id":"product/pl1","url":"./images/PlasticoRigido.jpg","_id":{"$oid":"63519fc16757fd7f1330ca68"}}],3,Plástico Rígido por Tonelada,4,[],1911000,Fabiancho
+0,6351a0609dc6821674880d56,4.5,Carton,Cartón por tonelada,2022-10-20T19:24:16.498Z,[{"public_id":"product/car1","url":"./images/Carton.jpg","_id":{"$oid":"6351a0609dc6821674880d57"}}],10,Cartón por tonelada,8,[],423000,Fabiancho
+0,6351a0ac9dc6821674880d59,4.8,Plastico,Plástico PET Cristal,2022-10-20T19:25:32.377Z,[{"public_id":"product/pl2","url":"./images/PETCristal.jpg","_id":{"$oid":"6351a0ac9dc6821674880d5a"}}],20,Plástico PET Cristal,12,[],2815000,Fabiancho

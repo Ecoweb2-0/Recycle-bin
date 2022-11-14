@@ -11,3 +11,4 @@ connectDatabase();
 const server=app.listen(process.env.PORT, () => {
     console.log(`Servidor iniciado en el puerto: ${process.env.PORT} en modo: ${process.env.NODE_ENV}`)
 })
+//linea 4 del config.env--- DB_LOCAL_URI = mongodb://127.0.0.1:27017/recycle

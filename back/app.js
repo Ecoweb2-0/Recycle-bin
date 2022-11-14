@@ -12,10 +12,14 @@ const productos= require("./routes/products")
 const ventas= require("./routes/sales")
 const usuarios=require("./routes/auth")
 
-//ruta para el navegador // sujeto a decisión
+const inventario= require("./routes/inventario")
+
+//ruta para el navegador
 app.use('/api',productos) 
 app.use('/api',usuarios)
 app.use('/api',ventas)
+
+app.use('/api',inventario)
 
 //Manejo de errores
 app.use(errorMiddleware)

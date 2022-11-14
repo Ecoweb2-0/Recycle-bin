@@ -70,8 +70,8 @@ exports.deleteProduct= catchAsyncErrors(async (req,res,next) =>{
 
 //Crear nuevo producto /api/productos
 exports.newProduct=catchAsyncErrors(async(req,res,next)=>{
-    req.body.user=req.user.id;
     const product= await producto.create(req.body);
+
     res.status(201).json({
         success:true,
         product
@@ -81,7 +81,7 @@ exports.newProduct=catchAsyncErrors(async(req,res,next)=>{
 //HABLEMOS DE FETCH
 //Ver todos los productos
 function verProductos(){
-    fetch('http://localhost:4000/api/productos')
+    fetch('http://127.0.0.1:4000/api/productos')
     .then(res=>res.json())
     .then(res=>console.log(res))
     .catch(err=>console.error(err))
@@ -91,7 +91,7 @@ function verProductos(){
 
 //Ver por id
 function verProductoPorID(id){
-    fetch('http://localhost:4000/api/producto/'+id)
+    fetch('http://127.0.0.1:4000/api/producto/'+id)
     .then(res=>res.json())
     .then(res=>console.log(res))
     .catch(err=>console.error(err))

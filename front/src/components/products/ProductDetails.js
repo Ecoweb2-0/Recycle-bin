@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import { getProductDetails, clearErrors} from '../../actions/productActions'
 import { useAlert} from 'react-alert'
 import { Carousel } from 'react-bootstrap'
+import { addItemToCart } from '../../actions/cartActions'
+import CurrencyFormat from 'react-currency-format'
 
 
 export const ProductDetails = () => {
@@ -41,6 +43,11 @@ export const ProductDetails = () => {
     setQuantity(qty)
  }
 
+ const addToCart = () => {
+  dispatch(addItemToCart(id, quantity));
+  alert.success('Producto agregado al carro')
+}
+
   return (
    <Fragment>
     {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
@@ -67,13 +74,13 @@ export const ProductDetails = () => {
               </div>
               <span id="No_de_reviews">  ({product.numCalificaciones} Reviews)</span>
               <hr />
-              <p id="precio_producto">${product.precio}</p>
+              <p id="precio_producto"><CurrencyFormat value={product.precio}displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} /></p>
               <div className="stockCounter d-inline">
                 <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
                 <input type="number" className="form-control count d-inline" value={quantity} readOnly/>
                 <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
               </div>
-              <button type="button" id="carrito_btn" className="btn btn-primary d-inline ml-4" disabled={product.inventario===0}>Agregar al Carrito</button>
+              <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={product.inventario === 0} onClick={addToCart}>Agregar al Carrito</button>
               <hr />
               <p>Estado: <span id="stock_stado" className={product.inventario>0 ? 'greenColor':'redColor'}>{product.inventario>0 ? "En existencia": "Agotado"}</span></p>
               <hr />
@@ -127,4 +134,3 @@ export const ProductDetails = () => {
     
   )
 }
-

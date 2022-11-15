@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import CurrencyFormat from 'react-currency-format'
 
 export const Product = ({producto}) => {
   return (
@@ -14,7 +15,7 @@ export const Product = ({producto}) => {
             </div>
             <span id="No_de_opiniones"> {producto.numCalificaciones} Reviews</span>
           </div>
-          <p className='card-text'>${producto.precio}</p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
+          <p className='card-text'><CurrencyFormat value={producto.precio} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} /></p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
             Ver detalle
           </Link>
         </div>

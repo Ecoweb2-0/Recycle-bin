@@ -8,7 +8,7 @@ import { ProductDetails } from './components/products/ProductDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './components/admin/Dashboard';
 import ProductsList from './components/admin/ProductsList';
-import NewProduct from './components/admin/newProduct';
+import Newproduct from './components/admin/Newproduct';
 import Cart from './components/cart/Cart';
 import { Login } from './components/user/Login';
 import { Register } from './components/user/Register';
@@ -36,7 +36,7 @@ function App() {
             <Route path="/Home" element={<Home />}/>
             <Route path="/producto/:id" element={<ProductDetails />}/>
             <Route path="/productList" element={<ProductsList />}/>
-            <Route path="/nuevoProducto" element={<NewProduct />}/>
+            <Route path="/nuevoProducto" element={<Newproduct />}/>
             <Route path="/search/:keyword" element={<Home />}/>
             <Route path="/carrito" element={<Cart />}/>
             <Route path="/login" element={<Login />} />

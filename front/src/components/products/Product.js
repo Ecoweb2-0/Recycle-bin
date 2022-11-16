@@ -4,7 +4,7 @@ import CurrencyFormat from 'react-currency-format'
 
 export const Product = ({producto}) => {
   return (
-    <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
+    <div className='col-sm-12 col-md-6 col-lg-4 my-3'>
       <div className='card p-3 rounded'>
         <img className='card-img-top mx-auto' src={producto.imagen[0].url} alt={producto.imagen[0].public_id}></img>
         <div className='card-body d-flex flex-column'>

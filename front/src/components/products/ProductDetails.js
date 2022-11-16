@@ -6,7 +6,6 @@ import { getProductDetails, clearErrors} from '../../actions/productActions'
 import { useAlert} from 'react-alert'
 import { Carousel } from 'react-bootstrap'
 import { addItemToCart } from '../../actions/cartActions'
-import CurrencyFormat from 'react-currency-format'
 
 
 export const ProductDetails = () => {
@@ -58,7 +57,7 @@ export const ProductDetails = () => {
               <Carousel pause='hover'>
                 {product.imagen && product.imagen.map(img =>(
                   <Carousel.Item key={img.public_id}>
-                    <img className="d-block w-100" src={"../"+img.url} alt={product.nombre}></img>
+                    <img className="d-block w-100" src={img.url} alt={product.nombre}></img>
                   </Carousel.Item>
                 ))}
               </Carousel>
@@ -74,7 +73,7 @@ export const ProductDetails = () => {
               </div>
               <span id="No_de_reviews">  ({product.numCalificaciones} Reviews)</span>
               <hr />
-              <p id="precio_producto"><CurrencyFormat value={product.precio}displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} /></p>
+              <p id="precio_producto">${product.precio}</p>
               <div className="stockCounter d-inline">
                 <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
                 <input type="number" className="form-control count d-inline" value={quantity} readOnly/>

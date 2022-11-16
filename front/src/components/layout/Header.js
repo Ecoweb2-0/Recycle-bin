@@ -8,6 +8,7 @@ import { logout} from "../../actions/userActions"
 
 const Header = () => {
     const {cartItems} = useSelector(state=>state.cart)
+    
     const alert= useAlert();
     const dispatch= useDispatch();
 
@@ -22,7 +23,7 @@ const Header = () => {
             <nav className='navbar row'>
                 <div className='col-12 col-md-3'>
                     <div className='navbar-brand'>
-                        <Link to="/" > <img src="./images/logo.png" alt="Ecoweb Logo" height={80}></img></Link>
+                    <Link to="/"><img src="./images/logo.png" alt="Ecoweb Logo" height={80}></img></Link>
                     </div>
                 </div>
 
@@ -64,7 +65,10 @@ const Header = () => {
                 </div>
 
             </nav>
-
+            <tr className="navbar row text-center navig">
+            ORGANIZACIÓN ESPECIALIZADA EN LA VENTA DE MATERIAL RECICLADO AL POR MAYOR             
+            
+              </tr>
         </Fragment>
     )
 

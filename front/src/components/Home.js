@@ -35,7 +35,7 @@ export const Home = () => {
             {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
                     <MetaData title="Los mejores productos reciclados"></MetaData>
-                    <h1 id="encabezado_productos" className='text-center font-family: "Aldhabi", "Aldhabi" ' >ORGANIZACIÓN ESPECIALIZADA EN LA VENTA DE MATERIAL RECICLADO AL POR MAYOR</h1>
+                    
 
                     <section id="productos" className='container mt-5'>
                         <div className='row'>

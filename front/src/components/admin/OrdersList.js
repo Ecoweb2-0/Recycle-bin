@@ -5,7 +5,7 @@ import Sidebar from './Sidebar'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
-import { getOrders } from '../../actions/orderActions'
+import { AllOrders } from '../../actions/orderActions'
 
 
 export const OrdersList = () => {
@@ -18,7 +18,7 @@ export const OrdersList = () => {
             return alert.error(error)
         }
 
-        dispatch(getOrders);
+        dispatch(AllOrders);
     }, [dispatch, alert, error])
 
     const setOrders = () => {

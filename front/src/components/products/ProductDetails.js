@@ -6,6 +6,9 @@ import { getProductDetails, clearErrors} from '../../actions/productActions'
 import { useAlert} from 'react-alert'
 import { Carousel } from 'react-bootstrap'
 import { addItemToCart } from '../../actions/cartActions'
+import 'rc-slider/assets/index.css'
+import CurrencyFormat from 'react-currency-format'
+
 
 
 export const ProductDetails = () => {
@@ -52,6 +55,7 @@ export const ProductDetails = () => {
     {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
       <Fragment>
       <MetaData title={product.nombre}></MetaData>
+      <br></br>
       <div className='row d-flex justify-content-around'>
           <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
               <Carousel pause='hover'>
@@ -73,7 +77,7 @@ export const ProductDetails = () => {
               </div>
               <span id="No_de_reviews">  ({product.numCalificaciones} Reviews)</span>
               <hr />
-              <p id="precio_producto">${product.precio}</p>
+              <p id="precio_producto"><CurrencyFormat value={product.precio} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} /></p>
               <div className="stockCounter d-inline">
                 <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
                 <input type="number" className="form-control count d-inline" value={quantity} readOnly/>

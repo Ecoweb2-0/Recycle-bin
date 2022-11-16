@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { addItemToCart, removeItemFromCart } from '../../actions/cartActions'
 import MetaData from '../layout/MetaData'
-
+import CurrencyFormat from 'react-currency-format'
 
 const Cart = () => {
     const dispatch= useDispatch();
@@ -54,7 +54,7 @@ const Cart = () => {
 
 
                                             <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-                                                <p id="card_item_price">${item.precio}</p>
+                                            <p id="card_item_price"><CurrencyFormat value={item.precio}displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} /></p>
                                             </div>
 
                                             <div className="col-4 col-lg-3 mt-4 mt-lg-0">
@@ -83,9 +83,9 @@ const Cart = () => {
                             <div id="order_summary">
                                 <h4>Total de la Compra</h4>
                                 <hr />
-                                <p>Productos:  <span className="order-summary-values">{cartItems.reduce((acc, item)=>(acc+Number(item.quantity)),0)} (Unidades)</span></p>
-                                <p>SubTotal: <span className="order-summary-values">${cartItems.reduce((acc, item)=> acc+(item.quantity*item.precio),0).toFixed(2)}</span></p>
-
+                                <p>Productos:  <span className="order-summary-values"> {cartItems.reduce((acc, item)=>(acc+Number(item.quantity)),0)} (Unidades)</span></p>
+                                <p>Total: <span className="order-summary-values"><CurrencyFormat value={cartItems.reduce((acc, item)=> acc+(item.quantity*item.precio),0).toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />
+                                </span></p>
                                 <hr />
                                 <button id="checkout_btn" className="btn btn-primary btn-block">Comprar!</button>
                             </div>

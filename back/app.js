@@ -18,7 +18,7 @@ const ordenes=require("./routes/orders")
 
 app.use('/api',productos) //Sujeto a decision (ruta del navegador)
 app.use('/api',usuarios)
-app.use('/api', ordenes)
+app.use('/api',ordenes)
 
 //MiddleWares para manejar errores
 app.use(errorMiddleware)

@@ -1,24 +1,26 @@
-const express=require("express");
+const express=require("express")
 const router=express.Router();
-const { newOrder, 
+
+const {allOrders, 
+    newOrder, 
     getOneOrder, 
-    myOrders, 
-    allOrders,
-    updateOrder,
-    deleteOrder
-} = require("../controllers/orderController");
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+    myOrders,
+    updateOrder, 
+    deleteOrder, 
+    } = require("../controllers/orderController"); //Traemos la respuesta json desde el controlador
+const { isAuthenticatedUser , authorizeRoles} = require("../middleware/auth");
 
 
-router.route("/order/new").post(isAuthenticatedUser, newOrder)
-router.route("/order/:id").get(isAuthenticatedUser, getOneOrder)
-router.route("/orders/me").get(isAuthenticatedUser, myOrders)
 
+//Rutas admin
+router.route('/orden/:id').get(isAuthenticatedUser, authorizeRoles("admin"), getOneOrder); //Ruta para consultar por id
+router.route('/orden/:id').put(isAuthenticatedUser, authorizeRoles("admin"), updateOrder);//Creacion de la ruta de actualizacion
+router.route('/orden/:id').delete(isAuthenticatedUser, authorizeRoles("admin"), deleteOrder); //Creacion de la ruta de eliminacion por id
+router.route('/orden/nuevo').post(isAuthenticatedUser, authorizeRoles("admin"), newOrder); //establecemos la ruta
+router.route('/admin/ordenes').get(isAuthenticatedUser, authorizeRoles("admin"), allOrders); //establecemos la ruta
 
-//rutas de admin
-router.route("/admin/orders").get(isAuthenticatedUser, authorizeRoles("admin"), allOrders)
-router.route("/admin/order/:id").put(isAuthenticatedUser, authorizeRoles("admin"), updateOrder)
-router.route("/admin/order/:id").delete(isAuthenticatedUser, authorizeRoles("admin"), deleteOrder)
+//Ruta usuario
+router.route('/miOrden/id').get(isAuthenticatedUser, myOrders); //consultar usuario su orden
 
 
 module.exports=router;

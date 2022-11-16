@@ -8,6 +8,7 @@ import Sidebar from './Sidebar'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import {  clearErrors, getAdminProducts } from '../../actions/productActions'
+import CurrencyFormat from 'react-currency-format'
 
 const ProductsList = () => {
 
@@ -59,7 +60,7 @@ const ProductsList = () => {
         products.forEach(product => {
             data.rows.push({
                 nombre: product.nombre,
-                precio: `$${product.precio}`,
+                precio: <CurrencyFormat value={product.precio} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />,
                 inventario: product.inventario,
                 vendedor: product.vendedor,
                 acciones: <Fragment>

@@ -23,7 +23,7 @@ const Header = () => {
             <nav className='navbar row'>
                 <div className='col-12 col-md-3'>
                     <div className='navbar-brand'>
-                    <Link to="/"><img src="./images/logo.png" alt="Ecoweb Logo" height={80}></img></Link>
+                    <Link to="/"><img src="../images/logo.png" alt="Ecoweb Logo" height={80}></img></Link>
                     </div>
                 </div>
 

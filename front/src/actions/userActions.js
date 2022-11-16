@@ -211,7 +211,6 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
     }
 }
 
-
 //Clear error
 export const clearErrors = () => async (dispatch) =>{
     dispatch({

@@ -49,8 +49,10 @@ export const ProductDetails = () => {
 
   return (
    <Fragment>
+    
     {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
       <Fragment>
+        <br> </br>
       <MetaData title={product.nombre}></MetaData>
       <div className='row d-flex justify-content-around'>
           <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
@@ -89,7 +91,7 @@ export const ProductDetails = () => {
               <p id="vendedor">Vendido por: <strong>{product.vendedor}</strong></p>
               <button id="btn_review" type="button" className="btn btn-primary mt-4" 
               data-toggle="modal" data-target="#ratingModal">Deja tu Opinion</button>
-              <div className="alert alert-danger mt-5" type="alert">Inicia Sesión para dejar tu review</div>
+              <div className="alert alert-danger mt-5" type="alert">Inicia Sesión para dejar tu opinión</div>
           
               {/*Mensaje emergente para dejar opinion y calificacion*/}
               <div className="row mt-2 mb-5">

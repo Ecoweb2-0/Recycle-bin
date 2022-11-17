@@ -5,20 +5,32 @@ import Sidebar from './Sidebar'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
-import { AllOrders } from '../../actions/orderActions'
+import { clearErrors, deleteOrder, allOrders } from '../../actions/orderActions'
 
 
 export const OrdersList = () => {
-    const { loading, orders, error} = useSelector(state=> state.orders)
-    const alert= useAlert();
-
+    const alert = useAlert();
     const dispatch = useDispatch();
+
+    const { loading, orders, error} = useSelector(state=> state.orders)
+   
+    
+    const deleteOrderHandler= (id)=> {
+        const response=window.confirm("Esta seguro de querer borrar esta orden?")
+        if (response){
+            dispatch(deleteOrder(id))
+            alert.success("Orden eliminada correctamente")
+            window.location.reload(false)
+        }
+    }
     useEffect(() => {
-        if (error){
-            return alert.error(error)
+        dispatch(allOrders());
+
+        if (error) {
+            alert.error(error);
+            dispatch(clearErrors())
         }
 
-        dispatch(AllOrders);
     }, [dispatch, alert, error])
 
     const setOrders = () => {
@@ -94,6 +106,7 @@ export const OrdersList = () => {
                                 bordered
                                 striped
                                 hover
+                                noBottomColumns={true} 
                             />
                         )}
 

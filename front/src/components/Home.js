@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import MetaData from './layout/MetaData'
 import { useDispatch, useSelector } from 'react-redux'
+import { Search } from './layout/Search'
 import { getProducts } from '../actions/productActions'
 import { useParams, Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
@@ -36,10 +37,12 @@ export const Home = () => {
                 <Fragment>
                     <MetaData title="Chatarrería Online"></MetaData>
                     <br></br>
-                    <h1 id="encabezado_productos" className="text-center">Productos</h1>
-
+                    <div className='dropdown-menu-left col-4'>
+                            {/*Aqui va buscar*/}
+                             <Search />
+                            </div>
                     <section id="productos" className='container mt-5'>
-                        <div className='row'>
+                            <div className='row'>
                             <Slider
                                 range
                                 className='t-slider'
@@ -60,7 +63,7 @@ export const Home = () => {
                                 onChange={precio => setPrecio(precio)}
                             ></Slider>
                             <br></br>
-                            <br></br>
+                                                       <br></br>
 
                             {products && products.map(producto => (
                                 <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>

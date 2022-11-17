@@ -25,7 +25,9 @@ import { Shipping } from './components/cart/Shipping';
 import { ConfirmOrder } from './components/cart/ConfirmOrder';
 import { Payment } from './components/cart/Payment';
 import { Success } from './components/cart/Success'
-import {OrdersList} from './components/admin/OrdersList'
+import { ListOrder } from './components/order/ListOrder';
+import { OrderDetails } from './components/order/OrderDetails';
+import ListReviews from './components/order/ListReviews';
 
 function App() {
   useEffect(() => {
@@ -38,7 +40,7 @@ function App() {
         <Header />
         <div className='container container-fluid'>
           <Routes>
-            <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
             <Route path="/Home" element={<Home />} />
             <Route path="/producto/:id" element={<ProductDetails />} />
             <Route path="/productList" element={<ProductsList />} />
@@ -52,11 +54,10 @@ function App() {
             <Route path="/password/update" element={<UpdatePassword />} />
             <Route path="/password/forgot" element={<ForgotPassword />} />
             <Route path="/resetPassword/:token" element={<NewPassword />} />
-            <Route path="/orderList" element={<OrdersList />} />
 
 
-            {/*Ruta protegida*/}
-            <Route path="/dashboard"
+{/*Ruta protegida*/}
+<Route path="/dashboard"
               element={<ProtectedRoute isAdmin={true}><Dashboard /></ProtectedRoute>} />
 
             <Route path="/updateProduct/:id"
@@ -73,6 +74,14 @@ function App() {
 
             <Route path="/success"
               element={<ProtectedRoute><Success /></ProtectedRoute>} />
+
+            <Route path="/myOrders"
+              element={<ProtectedRoute><ListOrder /></ProtectedRoute>} />
+
+            <Route path="/order/:id"
+              element={<ProtectedRoute><OrderDetails /></ProtectedRoute>} />
+
+
 
 
 

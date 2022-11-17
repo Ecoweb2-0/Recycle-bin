@@ -26,9 +26,9 @@ const Header = () => {
                     </div>
                 </div>
 
-                {/*Boton inicio sesión*/}
-                <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
-                    <Link to="/carrito"><i className="fa fa-shopping-cart fa-2x text-white" aria-hidden="false"></i>
+ {/*Boton inicio sesión*/}
+ <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
+                    <Link to="/carrito"><i class="fa fa-shopping-cart fa-2x text-white" aria-hidden="false"></i>
                         <span className="ml-1" id="cart_count">{cartItems.length}</span></Link>
 
                     {user ? (
@@ -49,7 +49,7 @@ const Header = () => {
                                     <Link className="dropdown-item" to="/dashboard">Adm. Productos</Link>
                                 )}
 
-                                <Link className="dropdown-item" to="/">Pedidos</Link>
+                                <Link className="dropdown-item" to="/myOrders">Pedidos</Link>
                                 <Link className="dropdown-item" to="/yo">Mi Perfil</Link>
                                 <Link className="dropdown-item" to="/" onClick={logoutHandler}>Cerrar Sesion</Link>
                             </div>

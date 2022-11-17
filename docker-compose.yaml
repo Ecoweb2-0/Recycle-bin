@@ -24,6 +24,6 @@ services:
     tty: true
     depends_on:
       - backend
-  volumes:
-     data:
-     logs:
+volumes:
+    data:
+    logs:

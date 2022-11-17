@@ -1,10 +1,7 @@
 import React, { Fragment } from 'react'
 import "../../App.css"
 import { Link } from "react-router-dom"
-<<<<<<< HEAD
-=======
 import { Search } from './Search'
->>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert'
 import { logout} from "../../actions/userActions"
@@ -26,16 +23,7 @@ const Header = () => {
             <nav className='navbar row'>
                 <div className='col-12 col-md-3'>
                     <div className='navbar-brand'>
-<<<<<<< HEAD
-                    <Link to="/"><img src="../images/logo.png" alt="Ecoweb Logo" height={80}></img></Link>
-                    </div>
-                </div>
-
-                {/*Boton inicio sesión*/}
-                <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
-                    <Link to="/carrito"><i className="fa fa-shopping-cart fa-2x text-white" aria-hidden="false"></i>
-=======
-                    <Link to="/"><img src="./images/logo.png" alt="Ecoweb Logo" height={80}></img></Link>
+                        <Link to="/" ><img src="../images/vetyshop.png" alt="Vety Shop Store Logo"></img></Link>
                     </div>
                 </div>
 
@@ -46,7 +34,6 @@ const Header = () => {
                 {/*Boton inicio sesión*/}
                 <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
                     <Link to="/carrito"><i class="fa fa-shopping-cart fa-2x text-white" aria-hidden="false"></i>
->>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
                         <span className="ml-1" id="cart_count">{cartItems.length}</span></Link>
 
                     {user ? (
@@ -67,7 +54,7 @@ const Header = () => {
                                     <Link className="dropdown-item" to="/dashboard">Adm. Productos</Link>
                                 )}
 
-                                <Link className="dropdown-item" to="/">Pedidos</Link>
+                                <Link className="dropdown-item" to="/myOrders">Pedidos</Link>
                                 <Link className="dropdown-item" to="/yo">Mi Perfil</Link>
                                 <Link className="dropdown-item" to="/" onClick={logoutHandler}>Cerrar Sesion</Link>
                             </div>
@@ -78,17 +65,7 @@ const Header = () => {
                 </div>
 
             </nav>
-<<<<<<< HEAD
-            <div className="navbar row text-center navig">
-                    </div>
-           
 
-=======
-            <tr className="navbar row text-center navig">
-            ORGANIZACIÓN ESPECIALIZADA EN LA VENTA DE MATERIAL RECICLADO AL POR MAYOR             
-            
-              </tr>
->>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
         </Fragment>
     )
 

@@ -69,8 +69,4 @@ export const Login = () => {
             )}
         </Fragment>
     )
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a

@@ -1,6 +1,5 @@
 import React, { Fragment} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-<<<<<<< HEAD
 import { Link, useNavigate } from 'react-router-dom'
 import { addItemToCart, removeItemFromCart } from '../../actions/cartActions'
 import MetaData from '../layout/MetaData'
@@ -11,17 +10,6 @@ const Cart = () => {
     const dispatch= useDispatch();
     const {cartItems} = useSelector(state => state.cart)
     const {user} =useSelector(state => state.auth)
-=======
-import { Link } from 'react-router-dom'
-import { addItemToCart, removeItemFromCart } from '../../actions/cartActions'
-import MetaData from '../layout/MetaData'
-import CurrencyFormat from 'react-currency-format'
-
-
-const Cart = () => {
-    const dispatch= useDispatch();
-    const {cartItems} = useSelector(state => state.cart)
->>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
 
     const increaseQty = (id, quantity, inventario) => {
         const newQty = quantity+1;
@@ -35,7 +23,6 @@ const Cart = () => {
         dispatch(addItemToCart(id, newQty))
    }
 
-<<<<<<< HEAD
    const checkOutHandler = () =>{
         if (user){
             navigate("/shipping")
@@ -45,8 +32,6 @@ const Cart = () => {
         }
    }
 
-=======
->>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
    const removeCartItemHandler= (id)=>{
     dispatch(removeItemFromCart(id))
    }
@@ -59,11 +44,7 @@ const Cart = () => {
             {cartItems.length === 0 ? <h2 className="mt-5">Su carrito esta vacio</h2> : (
                 <Fragment>
                     
-<<<<<<< HEAD
                     <h2 className="mt-5">Su Carrito: <b>{cartItems.reduce((acc, item)=>(acc+Number(item.quantity)),0)} items</b></h2>
-=======
-                    <h2 className="mt-5">Su Carrito: <b>{cartItems.reduce((acc, item)=>(acc+Number(item.quantity)),0)} Cantidades</b></h2>
->>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
 
                     <div className="row d-flex justify-content-between">
                         <div className="col-12 col-lg-8">
@@ -84,12 +65,7 @@ const Cart = () => {
 
 
                                             <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-<<<<<<< HEAD
                                                 <p id="card_item_price">${item.precio}</p>
-=======
-                                                <p id="card_item_price"><CurrencyFormat value={item.precio}displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />
-</p>
->>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
                                             </div>
 
                                             <div className="col-4 col-lg-3 mt-4 mt-lg-0">
@@ -114,18 +90,12 @@ const Cart = () => {
                         ))}
                         </div>
 
-                        <div className="col-12 col-lg-4 my-3">
+                        <div className="col-12 col-lg-3 my-4">
                             <div id="order_summary">
                                 <h4>Total de la Compra</h4>
                                 <hr />
-<<<<<<< HEAD
                                 <p>Productos:  <span className="order-summary-values">{cartItems.reduce((acc, item)=>(acc+Number(item.quantity)),0)} (Unidades)</span></p>
                                 <p>Est. total: <span className="order-summary-values">${cartItems.reduce((acc, item)=> acc+(item.quantity*item.precio),0).toFixed(2)}</span></p>
-=======
-                                <p>Productos:  <span className="order-summary-values"> {cartItems.reduce((acc, item)=>(acc+Number(item.quantity)),0)} (Unidades)</span></p>
-                                <p>Total: <span className="order-summary-values"><CurrencyFormat value={cartItems.reduce((acc, item)=> acc+(item.quantity*item.precio),0).toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />
-                                </span></p>
->>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
 
                                 <hr />
                                 <button id="checkout_btn" className="btn btn-primary btn-block" onClick={checkOutHandler}>Comprar!</button>

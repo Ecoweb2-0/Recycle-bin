@@ -6,9 +6,6 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  position: justify;
-  font-family: "Aldhabi", "Aldhabi";
-  background-color: #e8f7c0;
 }
 
 /* Scroll Bar */
@@ -23,25 +20,19 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(85, 34, 34, 0.2);
+  background-color: rgba(66, 66, 66, 0.2);
   border: 0px;
   background-clip: padding-box;
   border-radius: 5px;
 }
 
 nav {
-  background-color: #042f41;
+  background-color: #232f3e;
   padding: 1rem 1rem;
 }
 
-.navig {
-  background-color: #2a7007;
-  padding: 0.8rem 0.8rem;
-  color: #232f3e;
-}
-
 #search_btn {
-  background-color: #378f0a;
+  background-color: #febd69;
 }
 
 .input-group {
@@ -56,7 +47,7 @@ f
 
 #login_btn,
 #view_btn {
-  background-color: #9bfe69;
+  background-color: #febd69;
   padding: 0.4rem 1.8rem;
   font-family: calibri;
 }
@@ -64,78 +55,56 @@ f
 #cart {
   font-size: 1rem;
   color: white;
-  
 }
 
 #cart_count {
-  background-color: #9bfe69;
+  background-color: #febd69;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
   color: black;
   font-weight: bold;
   font-size: 0.9rem;
-  
 }
 
-/*   */
+/* Home page */
 #products_heading {
   margin-top: 1.8rem;
 }
 
 .card {
   height: 100%;
-  
 }
 
 .card-title a {
   color: #2e2e2e;
-  
 }
 
 .card-title a:hover {
-  color: #9bfe69;
+  color: #fa9c23;
   text-decoration: none;
-  
 }
 
 .card-body {
   padding-left: 0;
-  font-family: "Aldhabi", "Aldhabi";
-  
 }
 
 .card-text {
   font-size: 1.4rem;
-  
-}
-
-.card-desc {
-  font-size: 0.8rem;
 }
 
 #view_btn {
-  background-color: #9bfe69;
-  color: black;
-  font-family: "Aldhabi", "Aldhabi";
-  
-}
-
-#danger {
-  color: rgb(252, 0, 0);
+  background-color: #fa9c23;
+  color: white;
 }
 
 .card-img-top {
   width: 200px;
   height: 150px;
 }
-.card-img-min {
-  width: 100px;
-  height: 70px;
-}
 
 .ratings {
   font-size: 1.2rem;
-  color: #91fd0d;
+  color: #fdcc0d;
 }
 
 #no_of_reviews {
@@ -193,7 +162,7 @@ footer {
 #cart_btn,
 #review_btn {
   border-radius: 2rem;
-  background-color: #9bfe69;
+  background-color: #fa9c23;
   border: none;
   padding: 0.5rem 2rem;
 }
@@ -220,10 +189,6 @@ footer {
 #product_image {
   margin-top: 9rem;
 }
-.basur {
-  width: 50px;
-  height: 30px;
-}
 
 /* Loader */
 .loader {
@@ -242,8 +207,8 @@ footer {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #9bfe69;
-  border-color: #9bfe69 transparent;
+  border: 6px solid #fa9c23;
+  border-color: #fa9c23 transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
@@ -275,23 +240,22 @@ footer {
 }
 
 #card_item_price {
-  color: #000000;
+  color: #febd69;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 #checkout_btn,
 .review-btn {
-  background-color: #9bfe69;
-  border-color: #9bfe69;
+  background-color: #fa9c23;
+  border-color: #fa9c23;
   margin-top: 2rem;
   border-radius: 5rem;
-  color:#000000
 }
 
 #view_order_details {
-  background-color: #9bfe69;
-  border-color: #9bfe69;
+  background-color: #fa9c23;
+  border-color: #fa9c23;
 }
 
 #order_summary {
@@ -343,8 +307,8 @@ footer {
 }
 
 .wrapper form .btn {
-  background-color: #9bfe69;
-  border-color: #9bfe69;
+  background-color: #fa9c23;
+  border-color: #fa9c23;
   color: white;
   margin-top: 2.5rem;
 }
@@ -423,7 +387,7 @@ footer {
 }
 
 .active-step {
-  background: #9bfe69;
+  background: #fa9c23;
   color: #fff;
 }
 
@@ -431,7 +395,7 @@ footer {
   float: left;
   width: 0;
   border-top: 20px solid transparent;
-  border-left: 15px solid #9bfe69;
+  border-left: 15px solid #fa9c23;
   border-bottom: 20px solid transparent;
   margin-left: -1px;
 }
@@ -439,9 +403,9 @@ footer {
 .triangle2-active {
   width: 0;
   float: left;
-  border-top: 20px solid #9bfe69;
+  border-top: 20px solid #fa9c23;
   border-left: 15px solid #fff;
-  border-bottom: 20px solid #9bfe69;
+  border-bottom: 20px solid #fa9c23;
   margin-right: -1px;
 }
 
@@ -481,8 +445,8 @@ footer {
 }
 
 #edit_profile {
-  background-color: #9bfe69;
-  border-color: #9bfe69;
+  background-color: #fa9c23;
+  border-color: #fa9c23;
 }
 
 /* Confirm Order */
@@ -493,8 +457,8 @@ footer {
 }
 
 .update-btn {
-  background-color: #9bfe69;
-  border-color: #9bfe69;
+  background-color: #fa9c23;
+  border-color: #fa9c23;
   color: white;
 }
 
@@ -504,16 +468,16 @@ footer {
 
 /* Pagination */
 .page-item.active .page-link {
-  background-color: #337413;
-  border-color: #9bfe69;
+  background-color: #fa9c23;
+  border-color: #fa9c23;
 }
 
 .page-link {
-  color: #9bfe69;
+  color: #fa9c23;
 }
 
 .page-link:hover {
-  color: #9bfe69;
+  color: #fa9c23;
 }
 
 /* Admin Sidebar */
@@ -639,7 +603,7 @@ ul.CTAs a {
 }
 
 .orange {
-  color: #f7ac35;
+  color: #fa9c23;
 }
 
 .yellow {
@@ -649,30 +613,4 @@ ul.CTAs a {
 .review_user {
   font-size: 0.8rem;
   color: grey;
-}
-
-.link_user {
-  font-size: 1.2rem;
-  color: rgb(0, 0, 0);
-}
-
-.barra{
-  background-color: #d3ffbd;
-  padding: 0.8rem 0.8rem;
-  color: #232f3e;  
-}
-.table-az{
-  background-color: #232f3e;
-  color:white;
-}
-
-.btn-circle {
-  background-color: red;
-  width: 30px;
-  height: 30px;
-  padding: 6px 0px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.42857;
 }

@@ -32,10 +32,6 @@ const Sidebar = () => {
                         <Link to="/users"><i className="fa fa-users"></i> Usuarios</Link>
                     </li>
 
-                    <li>
-                        <Link to="/reviews"><i className="fa fa-star"></i> Opiniones</Link>
-                    </li>
-
                 </ul>
             </nav>
         </div>

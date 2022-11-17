@@ -1,17 +1,19 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import MetaData from './layout/MetaData'
 import { useDispatch, useSelector } from 'react-redux'
+import { Search } from './layout/Search'
 import { getProducts } from '../actions/productActions'
 import { useParams, Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import Pagination from 'react-js-pagination'
 import Slider from "rc-slider"
 import 'rc-slider/assets/index.css'
+import CurrencyFormat from 'react-currency-format'
 
 export const Home = () => {
     const params = useParams();
     const keyword = params.keyword;
-    const [precio, setPrecio] = useState([100, 1000000])
+    const [precio, setPrecio] = useState([5000, 10000000])
     const [currentPage, setCurrentPage] = useState(1)
     const { loading, products, error, resPerPage, productsCount } = useSelector(state => state.products)
     const alert = useAlert();
@@ -31,23 +33,26 @@ export const Home = () => {
 
     return (
         <Fragment>
-            {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
+            {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
-                    <MetaData title="Lo mejor para tu compañero"></MetaData>
-                    <h1 id="encabezado_productos">Ultimos Productos</h1>
-
+                    <MetaData title="Chatarrería Online"></MetaData>
+                    <br></br>
+                    <div className='dropdown-menu-left col-4'>
+                            {/*Aqui va buscar*/}
+                             <Search />
+                            </div>
                     <section id="productos" className='container mt-5'>
-                        <div className='row'>
+                            <div className='row'>
                             <Slider
                                 range
                                 className='t-slider'
                                 marks={{
-                                    100: `$100`,
-                                    1000000: `$1000000`
+                                    5000: `$5000`,
+                                    10000000: `$10000000`
                                 }}
-                                min={100}
-                                max={1000000}
-                                defaultValue={[100, 1000000]}
+                                min={5000}
+                                max={10000000}
+                                defaultValue={[5000, 10000000]}
                                 tipFormatter={value => `$${value}`}
                                 tipProps={{
                                     placement: 'top',
@@ -57,6 +62,8 @@ export const Home = () => {
                                 value={precio}
                                 onChange={precio => setPrecio(precio)}
                             ></Slider>
+                            <br></br>
+                                                       <br></br>
 
                             {products && products.map(producto => (
                                 <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>
@@ -70,7 +77,8 @@ export const Home = () => {
                                                 </div>
                                                 <span id="No_de_opiniones"> {producto.numCalificaciones} Reviews</span>
                                             </div>
-                                            <p className='card-text'>${producto.precio}</p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
+                                            <p className='card-text'><CurrencyFormat value={producto.precio}displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />
+                                            </p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>    
                                                 Ver detalle
                                             </Link>
                                         </div>
@@ -83,16 +91,13 @@ export const Home = () => {
 
                     <div className='d-flex justify-content-center mt-5'>
                         <Pagination
-                            activePage={currentPage}
-                            itemsCountPerPage={resPerPage}
-                            totalItemsCount={productsCount}
-                            onChange={setCurrentPageNo}
-                            nextPageText={'Siguiente'}
-                            prevPageText={'Anterior'}
-                            firstPageText={'Primera'}
-                            lastPageText={'Ultima'}
-                            itemClass='page-item'
-                            linkClass='page-link'
+                        activePage={currentPage}
+                        itemsCountPerPage={resPerPage}
+                        totalItemsCount={productsCount}
+                        onChange={setCurrentPageNo}
+                        count={10} shape="rounded" variant="outlined" 
+                        itemClass='page-item'
+                        linkClass='page-link'
                         />
                     </div>
 

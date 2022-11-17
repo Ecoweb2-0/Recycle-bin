@@ -5,57 +5,66 @@ const productosSchema=mongoose.Schema({
         type:String,
         required:[true,"Por favor registra el nombre del producto."],
         trim:true,
-        maxLength:[120, "El nombre del producto no debe exceder los 120 caracteres"]
+        maxLength:[120,"El nombre del producto no debe exceder los 120 caracteres."]
     },
     precio:{
         type: Number,
-        required:[true, "POr favor registre el precio del producto."],
-        maxLength:[8,"El precio del producto no puede estar por encima de 99'999.999"],
+        required:[true,"Por favor registre el precio del producto."],
+        maxLength:[8, "El precio del producto no puede estar por encima de 99'999.999"],
         default: 0.0
-        
     },
     descripcion:{
-        type:String,
-        requiered:[true, "Por favor registre una descripción para el producto."]
+      type:String,
+      required:[true,"Por favor registre una descripcion para el producto."]
     },
     calificacion:{
-        type:Number,
-        default:0
+        type: Number,
+        default: 0
     },
     imagen:[
         {
             public_id:{
                 type:String,
-                requerid:true
+                required:true
             },
             url:{
                 type:String,
-                requerid:true
+                required:true
             }
         }
     ],
     categoria:{
         type:String,
-        required:[true, "Por favor seleccione la categoria del producto."],
+        required:[true,"Por favor seleccione la categoria del producto."],
         enum:{
-           values:[
-            "Cartón",
-            "Metal",
-            "Papel",
-            "Plástico",
-            "Vidrio",
-            "Otros"
-           ] 
+            values:[
+                "Cartón",
+                "Metal - Aluminio",
+                "Metal - Cobre",
+                "Metal - Hierro",
+                "Papel - Archivo",
+                "Papel - Periódico",
+                "Papel - Plegadiza",
+                "Papel - Tetrapak",
+                "Plástico - Icopor",
+                "Plástico - PET Cristal",
+                "Plástico - PET Otros",
+                "Plástico - Flexible",
+                "Plástico - Mezclado",
+                "Plástico - Rí­gido",
+                "Vidrio",
+                "Otros"
+            ]
         }
     },
     vendedor:{
         type:String,
-        required:[true, "Por favor registre el vendedor del producto"]
+        required:[true,"Por favor registre el vendedor de producto"]
     },
-    stock:{
-        type:Number,
+    inventario:{
+        type: Number,
         required:[true, "Por favor registre el stock del producto"],
-        maxLength:[5, "La cantidad maxima del producto no puede sobrepasar 99999"],
+        maxLength:[5,"Cantidad maxima del producto no puede sobrepasar 99999"],
         default:0
     },
     numCalificaciones:{
@@ -66,24 +75,29 @@ const productosSchema=mongoose.Schema({
         {
             nombreCliente:{
                 type:String,
-                requiered:true
+                required:true
             },
             rating:{
                 type:Number,
                 required:true
             },
-            comentarios:{
+            comentario:{
                 type:String,
                 required:true
             }
         }
     ],
+    user:{
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
+
     fechaCreacion:{
         type:Date,
         default:Date.now
     }
 
 })
-
 
 module.exports=mongoose.model("productos",productosSchema)

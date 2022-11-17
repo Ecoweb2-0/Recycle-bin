@@ -2,19 +2,16 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MetaData from "../layout/MetaData"
 import { useParams } from 'react-router-dom'
-import { getProductDetails, clearErrors} from '../../actions/productActions'
+import { getProductDetails, clearErrors} from '../../actions/orderActions'
 import { useAlert} from 'react-alert'
 import { Carousel } from 'react-bootstrap'
-import {agregarItems} from '../../agregarItems'
 
 
 
 
 
-
-
-export const ProductDetails = () => {
-   const {loading, product, error} = useSelector(state =>state.productDetails)
+export const OrderDetails = () => {
+   const {loading, order, error} = useSelector(state =>state.orderDetails)
    const {id} =useParams();
    const dispatch= useDispatch();
    const alert= useAlert();
@@ -33,7 +30,7 @@ export const ProductDetails = () => {
    const increaseQty = () => {
       const contador = document.querySelector('.count')
 
-      if (contador.valueAsNumber>=product.inventario) return;
+      if (contador.valueAsNumber>=order.inventario) return;
 
       const qty = contador.valueAsNumber+1;
       setQuantity(qty)
@@ -52,27 +49,27 @@ export const ProductDetails = () => {
    <Fragment>
     {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
       <Fragment>
-      <MetaData title={product.nombre}></MetaData>
+      <MetaData title={order.nombre}></MetaData>
       <br></br>
       <div className='row d-flex justify-content-around'>
       
-          <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
+          <div className='col-12 col-lg-5 img-fluid' id="imagen_order">
               <Carousel pause='hover'>
-                {product.imagen && product.imagen.map(img =>(
+                {product.imagen && order.imagen.map(img =>(
                   <Carousel.Item key={img.public_id}>
-                    <img className="d-block w-100" src={"../"+img.url} alt={product.nombre}></img>
+                    <img className="d-block w-100" src={"../"+img.url} alt={order.nombre}></img>
                   </Carousel.Item>
                 ))}
               </Carousel>
           </div>
 
           <div className='col-12 col-lg-5 mt-5'>
-              <h3>{product.nombre}</h3>
-              <p id="product_id">ID del Producto {product._id}</p>
+              <h3>{order.nombre}</h3>
+              <p id="order_id">ID del Producto {order._id}</p>
               <hr />
 
               <div className='rating-outer'>
-                <div className="rating-inner" style={{width: `${(product.calificacion/5)*100}%`}}></div>
+                <div className="rating-inner" style={{width: `${(order.calificacion/5)*100}%`}}></div>
               </div>
               <span id="No_de_reviews">  ({product.numCalificaciones} Reviews)</span>
               <hr />
@@ -82,7 +79,7 @@ export const ProductDetails = () => {
                 <input type="number" className="form-control count d-inline" value={quantity} readOnly/>
                 <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
               </div>
-              <button onClick={agregarItems(product.id)} type="button" id="carrito_btn" className="btn btn-primary d-inline ml-4" disabled={product.inventario===0}>Agregar al Carrito</button>
+              <button type="button" id="carrito_btn" className="btn btn-primary d-inline ml-4" disabled={product.inventario===0}>Agregar al Carrito</button>
               <hr />
               <p>Estado: <span id="stock_stado" className={product.inventario>0 ? 'greenColor':'redColor'}>{product.inventario>0 ? "En existencia": "Agotado"}</span></p>
               <hr />

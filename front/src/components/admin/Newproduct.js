@@ -37,7 +37,7 @@ function Newproduct() {
       </Form.Group>
       <Form.Label>Categorí­a y tipo de material </Form.Label>
       <br></br>
-      <Form.Select size="lg">
+      <Form.Select size="lg" controlId="productForm.categoria">
         <option>Despliegue las opciones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -70,7 +70,7 @@ function Newproduct() {
         <Form.Control type="Number" placeholder="Ingrese un valor sin puntos ni comas" />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="productForm.inventario">
+      <Form.Group className="mb-3" controlId="productForm.vendedor">
         <Form.Label>Vendedor</Form.Label>
         <Form.Control type="String" placeholder="Nombre de la persona que vende el material" />
       </Form.Group>

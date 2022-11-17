@@ -1,32 +1,32 @@
 import { 
-    ALL_PRODUCTS_REQUEST,
-    ALL_PRODUCTS_SUCCESS,
-    ALL_PRODUCTS_FAIL,
-    PRODUCT_DETAILS_REQUEST,
-    PRODUCT_DETAILS_SUCCESS,
-    PRODUCT_DETAILS_FAIL,
+    ALL_ORDERS_REQUEST,
+    ALL_ORDERS_SUCCESS,
+    ALL_ORDERS_FAIL,
+    ORDER_DETAILS_REQUEST,
+    ORDER_DETAILS_SUCCESS,
+    ORDER_DETAILS_FAIL,
     CLEAR_ERRORS
-} from '../constants/productConstants';
+} from '../constants/orderConstants';
 
-export const productsReducer = ( state = { products : [] }, action) => {
+export const ordersReducer = ( state = { orders : [] }, action) => {
     switch(action.type) {
         
-        case ALL_PRODUCTS_REQUEST:
+        case ALL_ORDERS_REQUEST:
             return{
                 loading: true,
-                products:[]
+                orders:[]
             }
         
-        case ALL_PRODUCTS_SUCCESS:
+        case ALL_ORDERS_SUCCESS:
             return{
                 loading: false,
-                products: action.payload.products,
-                productsCount: action.payload.productsCount,
+                orders: action.payload.orders,
+                ordersCount: action.payload.ordersCount,
                 resPerPage: action.payload.resPerPage,
                 filteredProductsCount: action.payload.filteredProductsCount
             }
         
-        case ALL_PRODUCTS_FAIL:
+        case ALL_ORDERS_FAIL:
             return{
                 loading: false,
                 error: action.payload
@@ -43,22 +43,22 @@ export const productsReducer = ( state = { products : [] }, action) => {
     }
 }
 
-export const productDetailsReducer = ( state = { product: {}}, action) => {
+export const orderDetailsReducer = ( state = { order: {}}, action) => {
     switch(action.type) {
         
-        case PRODUCT_DETAILS_REQUEST:
+        case ORDER_DETAILS_REQUEST:
             return{
                 ...state,
                 loading: true
             }
         
-        case PRODUCT_DETAILS_SUCCESS:
+        case ORDER_DETAILS_SUCCESS:
             return{
                 loading: false,
-                product: action.payload.product
+                order: action.payload.order
             }
         
-        case PRODUCT_DETAILS_FAIL:
+        case ORDER_DETAILS_FAIL:
             return{
                 ...state,
                 error: action.payload

@@ -3,11 +3,12 @@ const producto = require("../models/productos");
 const APIFeatures = require("../utils/apiFeatures");
 const ErrorHandler = require("../utils/errorHandler");
 const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(url)); //Usurpación del require
+const cloudinary=require("cloudinary")
 
 //Ver la lista de productos
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
-    const resPerPage = 4;
+    const resPerPage = 8;
     const productsCount = await producto.countDocuments();
 
     const apiFeatures = new APIFeatures(producto.find(), req.query)
@@ -27,17 +28,6 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
         products
     })
 
-
-    const productos = await producto.find();
-    if (!productos) {
-        return next(new ErrorHandler("Informacion no encontrada", 404))
-    }
-
-    res.status(200).json({
-        success: true,
-        cantidad: productos.length,
-        productos
-    })
 })
 
 //Ver un producto por ID
@@ -60,6 +50,31 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     let product = await producto.findById(req.params.id) //Variable de tipo modificable
     if (!product) {
         return next(new ErrorHandler("Producto no encontrado", 404))
+    }
+    let imagen=[]
+
+    if (typeof req.body.imagen=="string"){
+        imagen.push(req.body.imagen)
+    }else{
+        imagen=req.body.imagen
+    }
+    if (imagen!== undefined){
+        //eliminar imagenes asociadas con el product
+        for (let i=0; i<product.imagen.lenght; i++){
+            const result= await cloudinary.v2.uploader.destroy(product.images[i].public_id)
+        }
+
+        let imageLinks=[]
+        for (let i=0; i<imagen.lenght; i++){
+            const result=await cloudinary.v2.uploader.upload(imagen[i],{
+                folder:"products"
+            });
+            imageLinks.push({
+                public_id:result.public_id,
+                url: result.secure_url
+            })
+        }
+        req.body.imagen=imageLinks
     }
 
     //Si el objeto si existia, entonces si ejecuto la actualización
@@ -93,6 +108,26 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 
 //Crear nuevo producto /api/productos
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
+    let imagen=[]
+    if(typeof req.body.imagen==="string"){
+        imagen.push(req.body.imagen)
+    }else{
+        imagen=req.body.imagen
+    }
+
+    let imagenLink=[]
+
+    for (let i=0; i<imagen.length;i++){
+        const result = await cloudinary.v2.uploader.upload(imagen[i],{
+            folder:"products"
+        })
+        imagenLink.push({
+            public_id:result.public_id,
+            url: result.secure_url
+        })
+    }
+
+    req.body.imagen=imagenLink
     req.body.user = req.user.id;
     const product = await producto.create(req.body);
     res.status(201).json({
@@ -155,16 +190,16 @@ exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
 exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     const product = await producto.findById(req.query.idProducto);
 
-    const opiniones = product.opiniones.filter(opinion =>
+    const opi = product.opiniones.filter(opinion =>
         opinion._id.toString() !== req.query.idReview.toString());
 
-    const numCalificaciones = opiniones.length;
+    const numCalificaciones = opi.length;
 
-    const calificacion = product.opiniones.reduce((acc, Opinion) =>
-        Opinion.rating + acc, 0) / opiniones.length;
+    const calificacion = opi.reduce((acc, Opinion) =>
+        Opinion.rating + acc, 0) / opi.length;
 
     await producto.findByIdAndUpdate(req.query.idProducto, {
-        opiniones,
+        opi,
         calificacion,
         numCalificaciones
     }, {
@@ -175,6 +210,17 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     res.status(200).json({
         success: true,
         message: "review eliminada correctamente"
+    })
+
+})
+
+//Ver la lista de productos (Admin)
+exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+
+    const products = await producto.find()
+
+    res.status(200).json({
+        products
     })
 
 })

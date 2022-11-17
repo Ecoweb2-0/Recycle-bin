@@ -5,37 +5,44 @@ import { getProducts } from '../actions/productActions'
 import { useParams, Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import Pagination from 'react-js-pagination'
-
+import Slider from "rc-slider"
+import 'rc-slider/assets/index.css'
+import CurrencyFormat from 'react-currency-format'
 
 export const Home = () => {
-    const params= useParams();
-    const keyword= params.keyword;
+    const params = useParams();
+    const keyword = params.keyword;
+    const [precio, setPrecio] = useState([100, 1000000])
     const [currentPage, setCurrentPage] = useState(1)
     const { loading, products, error, resPerPage, productsCount } = useSelector(state => state.products)
     const alert = useAlert();
-    
+
     const dispatch = useDispatch();
     useEffect(() => {
         if (error) {
             return alert.error(error)
         }
 
-        dispatch(getProducts(currentPage, keyword));
-    }, [dispatch, alert, error, currentPage, keyword])
+        dispatch(getProducts(currentPage, keyword, precio));
+    }, [dispatch, alert, error, currentPage, keyword, precio])
 
-    function setCurrentPageNo(pageNumber){
+    function setCurrentPageNo(pageNumber) {
         setCurrentPage(pageNumber)
     }
-    
+
     return (
         <Fragment>
             {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
-                    <MetaData title="Los mejores productos reciclados del mercado"></MetaData>
-                    <h1 id="encabezado_productos">Los mejores Productos</h1>
+                    <MetaData title="Lo mejor para tu compañero"></MetaData>
+                    <h1 id="encabezado_productos">Ultimos Productos</h1>
 
                     <section id="productos" className='container mt-5'>
-                        <div className='row'>
+                            <div className='row'>
+                           
+                            <br></br>
+                                                       <br></br>
+
                             {products && products.map(producto => (
                                 <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>
                                     <div className='card p-3 rounded'>
@@ -48,7 +55,8 @@ export const Home = () => {
                                                 </div>
                                                 <span id="No_de_opiniones"> {producto.numCalificaciones} Reviews</span>
                                             </div>
-                                            <p className='card-text'>${producto.precio}</p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
+                                            <p className='card-text'><CurrencyFormat value={producto.precio}displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />
+                                            </p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>    
                                                 Ver detalle
                                             </Link>
                                         </div>

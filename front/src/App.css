@@ -6,8 +6,8 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  font-family: "Cooper Black", "Cooper Black", cursive;
   position: justify;
+  font-family: "Aldhabi", "Aldhabi";
   background-color: #e8f7c0;
 }
 
@@ -100,7 +100,7 @@ f
 
 .card-body {
   padding-left: 0;
-  font-family: "Cooper Black", "Cooper Black", cursive;
+  font-family: "Aldhabi", "Aldhabi";
   
 }
 
@@ -116,7 +116,7 @@ f
 #view_btn {
   background-color: #9bfe69;
   color: black;
-  font-family: "Cooper Black", "Cooper Black", cursive;
+  font-family: "Aldhabi", "Aldhabi";
   
 }
 

@@ -5,20 +5,32 @@ import Sidebar from './Sidebar'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
-import { getOrders } from '../../actions/orderActions'
+import { clearErrors, deleteOrder, allOrders } from '../../actions/orderActions'
 
 
 export const OrdersList = () => {
-    const { loading, orders, error} = useSelector(state=> state.orders)
-    const alert= useAlert();
-
+    const alert = useAlert();
     const dispatch = useDispatch();
+
+    const { loading, orders, error} = useSelector(state=> state.orders)
+   
+    
+    const deleteOrderHandler= (id)=> {
+        const response=window.confirm("Esta seguro de querer borrar esta orden?")
+        if (response){
+            dispatch(deleteOrder(id))
+            alert.success("Orden eliminada correctamente")
+            window.location.reload(false)
+        }
+    }
     useEffect(() => {
-        if (error){
-            return alert.error(error)
+        dispatch(allOrders());
+
+        if (error) {
+            alert.error(error);
+            dispatch(clearErrors())
         }
 
-        dispatch(getOrders);
     }, [dispatch, alert, error])
 
     const setOrders = () => {
@@ -40,11 +52,6 @@ export const OrdersList = () => {
                     sort: 'asc'
                 },
                 {
-                    label: 'Productos',
-                    field: 'Items',
-                    sort: 'asc'
-                },
-                {
                     label: 'Acciones',
                     field: 'actions',
                 },
@@ -57,7 +64,6 @@ export const OrdersList = () => {
                 fechaCreacion: order.fechaCreacion,
                 precioTotal: `$ ${order.precioTotal}`,
                 estado: order.estado,
-                Items: order.Items,
                 actions:    <Fragment>
                                 <Link to={`/orden/${order._id}`} className="btn btn-primary py-1 px-2 mr-2">
                                     <i className="fa fa-eye"></i>
@@ -94,6 +100,7 @@ export const OrdersList = () => {
                                 bordered
                                 striped
                                 hover
+                                noBottomColumns={true} 
                             />
                         )}
 

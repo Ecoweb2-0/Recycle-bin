@@ -13,6 +13,7 @@ import {
     ADMIN_PRODUCTS_FAIL,
     NEW_PRODUCT_REQUEST,
     NEW_PRODUCT_SUCCESS,
+<<<<<<< HEAD
     NEW_PRODUCT_FAIL,
     DELETE_PRODUCT_SUCCESS,
     DELETE_PRODUCT_FAIL,
@@ -23,6 +24,9 @@ import {
     NEW_REVIEW_SUCCESS,
     NEW_REVIEW_FAIL,
     UPDATE_PRODUCT_FAIL
+=======
+    NEW_PRODUCT_FAIL
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
 } from '../constants/productConstants';
 
 export const getProducts = (currentPage = 1, keyword = '', precio) => async (dispatch) => {
@@ -103,6 +107,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: PRODUCT_DETAILS_FAIL,
+<<<<<<< HEAD
             payload: error.response.data.message
         })
     }
@@ -173,6 +178,8 @@ export const newReview = (reviewData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_REVIEW_FAIL,
+=======
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
             payload: error.response.data.message
         })
     }

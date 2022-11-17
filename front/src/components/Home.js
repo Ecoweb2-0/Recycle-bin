@@ -34,6 +34,7 @@ export const Home = () => {
         <Fragment>
             {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
+<<<<<<< HEAD
                     <MetaData title="Lo mejor para tu compañero"></MetaData>
                     <h1 id="encabezado_productos">Ultimos Productos</h1>
 
@@ -44,6 +45,14 @@ export const Home = () => {
                                                        <br></br>
 
                             {products && products.map(producto => (
+=======
+                    <MetaData title="Los mejores productos reciclados"></MetaData>
+                    
+
+                    <section id="productos" className='container mt-5'>
+                        <div className='row'>
+                              {products && products.map(producto => (
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
                                 <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>
                                     <div className='card p-3 rounded'>
                                         <img className='card-img-top mx-auto' src={producto.imagen[0].url} alt={producto.imagen[0].public_id}></img>
@@ -56,7 +65,11 @@ export const Home = () => {
                                                 <span id="No_de_opiniones"> {producto.numCalificaciones} Reviews</span>
                                             </div>
                                             <p className='card-text'><CurrencyFormat value={producto.precio}displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />
+<<<<<<< HEAD
                                             </p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>    
+=======
+                                            </p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
                                                 Ver detalle
                                             </Link>
                                         </div>

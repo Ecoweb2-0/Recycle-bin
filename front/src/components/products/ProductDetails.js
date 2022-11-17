@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { Carousel } from 'react-bootstrap'
+<<<<<<< HEAD
 import MetaData from '../layout/MetaData'
 import { useParams} from "react-router-dom"
 
@@ -9,6 +10,10 @@ import { getProductDetails, newReview, clearErrors } from '../../actions/product
 import { addItemToCart } from '../../actions/cartActions'
 import { NEW_REVIEW_RESET } from '../../constants/productConstants'
 import ListReviews from '../order/ListReviews'
+=======
+import { addItemToCart } from '../../actions/cartActions'
+
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
 
 export const ProductDetails = () => {
     const params= useParams();
@@ -16,12 +21,21 @@ export const ProductDetails = () => {
     const [rating, setRating] = useState(0);
     const [comentario, setComentario] = useState('');
 
+<<<<<<< HEAD
     const dispatch = useDispatch();
     const alert = useAlert();
 
     const { loading, error, product } = useSelector(state => state.productDetails)
     const { user } = useSelector(state => state.auth)
     const { error: reviewError, success } = useSelector(state => state.newReview)
+=======
+   useEffect(() => {
+    dispatch(getProductDetails(id))
+    if (error){
+      alert.error(error);
+      dispatch(clearErrors())
+    }
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
 
     useEffect(() => {
         dispatch(getProductDetails(params.id))
@@ -114,13 +128,29 @@ export const ProductDetails = () => {
   }
 
 
+ const addToCart = () => {
+  dispatch(addItemToCart(id, quantity));
+  alert.success('Producto agregado al carro')
+}
+
   return (
+<<<<<<< HEAD
     <Fragment>
       {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
         <Fragment>
           <MetaData title={product.nombre}></MetaData>
           <div className='row d-flex justify-content-around'>
             <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
+=======
+   <Fragment>
+    
+    {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
+      <Fragment>
+        <br> </br>
+      <MetaData title={product.nombre}></MetaData>
+      <div className='row d-flex justify-content-around'>
+          <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
               <Carousel pause='hover'>
                 {product.imagen && product.imagen.map(img => (
                   <Carousel.Item key={img.public_id}>
@@ -154,6 +184,7 @@ export const ProductDetails = () => {
               <p>{product.descripcion}</p>
               <hr />
               <p id="vendedor">Vendido por: <strong>{product.vendedor}</strong></p>
+<<<<<<< HEAD
 
               {user ?
                 <button id="btn_review" type="button" className="btn btn-primary mt-4"
@@ -162,6 +193,12 @@ export const ProductDetails = () => {
                 <div className="alert alert-danger mt-5" type="alert">Inicia Sesión para dejar tu review</div>
               }
 
+=======
+              <button id="btn_review" type="button" className="btn btn-primary mt-4" 
+              data-toggle="modal" data-target="#ratingModal">Deja tu Opinion</button>
+              <div className="alert alert-danger mt-5" type="alert">Inicia Sesión para dejar tu opinión</div>
+          
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
               {/*Mensaje emergente para dejar opinion y calificacion*/}
               <div className="row mt-2 mb-5">
                 <div className="rating w-50">
@@ -211,5 +248,9 @@ export const ProductDetails = () => {
     </Fragment>
 
   )
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a

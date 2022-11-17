@@ -23,8 +23,13 @@ export const Search = () => {
     <input
         type="text"
         id="search_field"
+<<<<<<< HEAD
         className="form-control"
         placeholder='¿Que producto buscas?...'
+=======
+        class="form-control"
+        placeholder='¿Que producto estas buscando?...'
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
         onChange={(e) => setKeyword(e.target.value)}
         />
         

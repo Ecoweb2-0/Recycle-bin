@@ -15,7 +15,11 @@ const Sidebar = () => {
                             className="fa fa-product-hunt"></i> Productos</a>
                         <ul className="collapse list-unstyled" id="productSubmenu">
                             <li>
+<<<<<<< HEAD
                                 <Link to="/ProductList"><i className="fa fa-clipboard"></i> Todos</Link>
+=======
+                                <Link to="/productList"><i className="fa fa-clipboard"></i>Listado</Link>
+>>>>>>> fc3bfc1eb8577ee6b78bc0e492051900a383a44a
                             </li>
 
                             <li>
@@ -29,11 +33,11 @@ const Sidebar = () => {
                     </li>
 
                     <li>
-                        <Link to="/admin/users"><i className="fa fa-users"></i> Usuarios</Link>
+                        <Link to="/users"><i className="fa fa-users"></i> Usuarios</Link>
                     </li>
 
                     <li>
-                        <Link to="/admin/reviews"><i className="fa fa-star"></i> Opiniones</Link>
+                        <Link to="/reviews"><i className="fa fa-star"></i> Opiniones</Link>
                     </li>
 
                 </ul>

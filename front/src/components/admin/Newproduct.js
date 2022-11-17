@@ -52,6 +52,7 @@ const NewProduct = () => {
         e.preventDefault();
 
         const formData = new FormData();
+        
         formData.set('nombre', nombre);
         formData.set('precio', precio);
         formData.set('descripcion', descripcion);

@@ -52,11 +52,6 @@ export const OrdersList = () => {
                     sort: 'asc'
                 },
                 {
-                    label: 'Productos',
-                    field: 'Items',
-                    sort: 'asc'
-                },
-                {
                     label: 'Acciones',
                     field: 'actions',
                 },
@@ -69,7 +64,6 @@ export const OrdersList = () => {
                 fechaCreacion: order.fechaCreacion,
                 precioTotal: `$ ${order.precioTotal}`,
                 estado: order.estado,
-                Items: order.Items,
                 actions:    <Fragment>
                                 <Link to={`/orden/${order._id}`} className="btn btn-primary py-1 px-2 mr-2">
                                     <i className="fa fa-eye"></i>

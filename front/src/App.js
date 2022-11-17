@@ -25,7 +25,8 @@ import { Shipping } from './components/cart/Shipping';
 import { ConfirmOrder } from './components/cart/ConfirmOrder';
 import { Payment } from './components/cart/Payment';
 import { Success } from './components/cart/Success'
-import {OrdersList} from './components/admin/OrdersList'
+import { ListOrder } from './components/order/ListOrder';
+import { OrderDetails } from './components/order/OrderDetails';
 
 function App() {
   useEffect(() => {
@@ -52,7 +53,6 @@ function App() {
             <Route path="/password/update" element={<UpdatePassword />} />
             <Route path="/password/forgot" element={<ForgotPassword />} />
             <Route path="/resetPassword/:token" element={<NewPassword />} />
-            <Route path="/orderList" element={<OrdersList />} />
 
 
             {/*Ruta protegida*/}
@@ -73,6 +73,12 @@ function App() {
 
             <Route path="/success"
               element={<ProtectedRoute><Success /></ProtectedRoute>} />
+
+            <Route path="/myOrders"
+              element={<ProtectedRoute><ListOrder /></ProtectedRoute>} />
+
+            <Route path="/order/:id"
+              element={<ProtectedRoute><OrderDetails /></ProtectedRoute>} />
 
 
 

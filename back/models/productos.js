@@ -38,12 +38,12 @@ const productosSchema=mongoose.Schema({
         required:[true,"Por favor seleccione la categoria del producto."],
         enum:{
             values:[
-                "Carton",
-                "Papel",
-                "Metal",
-                "Vidrio",
-                "Plastico"
-                ]
+            "Carton",
+            "Papel",
+            "Metal",
+            "Vidrio",
+            "Plastico"
+            ]
         }
     },
     vendedor:{

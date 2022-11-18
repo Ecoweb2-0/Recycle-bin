@@ -9,6 +9,7 @@ import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { allOrders, deleteOrder, clearErrors } from '../../actions/orderActions'
 import { DELETE_ORDER_RESET } from '../../constants/orderConstants'
+import CurrencyFormat from 'react-currency-format'
 
 const OrdersList = () => {
     const navigate= useNavigate();
@@ -32,7 +33,7 @@ const OrdersList = () => {
             dispatch({ type: DELETE_ORDER_RESET })
         }
 
-    }, [dispatch, alert, error, isDeleted])
+    }, [dispatch, alert, error, isDeleted, navigate])
 
 
     const deleteOrderHandler = (id) => {
@@ -81,7 +82,7 @@ const OrdersList = () => {
                 fecha: fecha,
                 id: order._id,
                 numItems: order.items.length,
-                valorTotal: `$${order.precioTotal}`,
+                valorTotal: <CurrencyFormat value={order.precioTotal} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />,
                 estado: order.estado && String(order.estado).includes('Entregado')
                     ? <p style={{ color: 'green' }}>{order.estado}</p>
                     : <p style={{ color: 'red' }}>{order.estado}</p>,

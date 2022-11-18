@@ -22,14 +22,12 @@ export const UpdateProduct = () => {
     const [oldImagen, setOldImagen] = useState([])
 
     const categorias = [
-        "Alimento seco",
-        "Alimento humedo",
-        "Accesorios",
-        "Cuidado e Higiene",
-        "Medicamentos",
-        "Snacks",
-        "Juguetes"
-    ]
+        "Carton",
+        "Papel",
+        "Metal",
+        "Vidrio",
+        "Plastico"
+        ]
 
     const alert = useAlert();
     const dispatch = useDispatch();
@@ -64,7 +62,7 @@ export const UpdateProduct = () => {
             dispatch({ type: UPDATE_PRODUCT_RESET})
         }
 
-    }, [dispatch, alert, error, isUpdated, updateError, product, productId])
+    }, [dispatch, alert, error, isUpdated, updateError, product, productId, navigate])
 
     const submitHandler = (e) => {
         e.preventDefault();

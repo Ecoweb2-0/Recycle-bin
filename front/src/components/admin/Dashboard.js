@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAdminProducts } from '../../actions/productActions'
 import { allOrders } from '../../actions/orderActions'
 import { allUsers } from '../../actions/userActions'
+import CurrencyFormat from 'react-currency-format'
 
 const Dashboard = () => {
 
@@ -20,7 +21,7 @@ const Dashboard = () => {
 
     let outOfStock = 0;
     products.forEach(product => {
-        if (product.stock === 0) {
+        if (product.inventario === 0) {
             outOfStock += 1;
         }
     })
@@ -49,7 +50,7 @@ const Dashboard = () => {
                                 <div className="col-xl-12 col-sm-12 mb-3">
                                     <div className="card text-white bg-primary o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Ventas Totales<br /> <b>${cantidadTotal && cantidadTotal.toFixed(2)}</b>
+                                            <div className="text-center card-font-size">Ventas Totales<br /> <b><CurrencyFormat value={cantidadTotal && cantidadTotal.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} /></b>
                                             </div>
                                         </div>
                                     </div>

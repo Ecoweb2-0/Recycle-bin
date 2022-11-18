@@ -13,7 +13,7 @@ const ProtectedRoute = ({children, isAdmin}) =>{
         }
     }, [isAuthenticated, loading])
 
-    if (loading) return <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i>;
+    if (loading) return <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>;
 
     if (loading===false && isAuthenticated){
         if (isAdmin===true & user.role!=="admin"){

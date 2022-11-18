@@ -27,7 +27,8 @@ import { Payment } from './components/cart/Payment';
 import { Success } from './components/cart/Success'
 import { ListOrder } from './components/order/ListOrder';
 import { OrderDetails } from './components/order/OrderDetails';
-import ListReviews from './components/order/ListReviews';
+import { ListReviews } from './components/order/ListReviews';
+import { ListaUsuario } from './components/admin/ListaUsuarios';
 
 function App() {
   useEffect(() => {
@@ -80,6 +81,10 @@ function App() {
 
             <Route path="/order/:id"
               element={<ProtectedRoute><OrderDetails /></ProtectedRoute>} />
+
+            <Route path="/admin/users"
+              element={<ProtectedRoute isAdmin={true}><ListaUsuario /></ProtectedRoute>} />
+
 
 
 

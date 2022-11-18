@@ -21,14 +21,12 @@ const NewProduct = () => {
     const [imagenPreview, setImagenPreview] = useState([])
 
     const categorias = [
-        "Alimento seco",
-        "Alimento humedo",
-        "Accesorios",
-        "Cuidado e Higiene",
-        "Medicamentos",
-        "Snacks",
-        "Juguetes"
-    ]
+        "Carton",
+        "Papel",
+        "Metal",
+        "Vidrio",
+        "Plastico"
+        ]
 
     const alert = useAlert();
     const dispatch = useDispatch();
@@ -54,6 +52,7 @@ const NewProduct = () => {
         e.preventDefault();
 
         const formData = new FormData();
+        
         formData.set('nombre', nombre);
         formData.set('precio', precio);
         formData.set('descripcion', descripcion);

@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { Carousel } from 'react-bootstrap'
 import MetaData from '../layout/MetaData'
-import { useParams} from "react-router-dom"
-
+import { Link, useParams} from "react-router-dom"
+import CurrencyFormat from 'react-currency-format'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductDetails, newReview, clearErrors } from '../../actions/productActions'
@@ -119,6 +119,7 @@ export const ProductDetails = () => {
       {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
         <Fragment>
           <MetaData title={product.nombre}></MetaData>
+          <br></br>
           <div className='row d-flex justify-content-around'>
             <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
               <Carousel pause='hover'>
@@ -140,13 +141,17 @@ export const ProductDetails = () => {
               </div>
               <span id="No_de_reviews">  ({product.numCalificaciones} Reviews)</span>
               <hr />
-              <p id="precio_producto">${product.precio}</p>
+              <p id="precio_producto"><CurrencyFormat value={product.precio} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} /></p>
               <div className="stockCounter d-inline">
                 <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
                 <input type="number" className="form-control count d-inline" value={quantity} readOnly />
                 <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
               </div>
-              <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={product.inventario === 0} onClick={addToCart}>Agregar al Carrito</button>
+              <div>
+              <br></br>
+              <button type="button" id="cart_btn" className="btn btn-primary ml-2" disabled={product.inventario === 0} onClick={addToCart}>Agregar</button>
+              <Link to={"/"} id="cart_btn" className="btn btn-primary ml-2">Veré más</Link>
+              </div>
               <hr />
               <p>Estado: <span id="stock_stado" className={product.inventario > 0 ? 'greenColor' : 'redColor'}>{product.inventario > 0 ? "En existencia" : "Agotado"}</span></p>
               <hr />
@@ -212,4 +217,3 @@ export const ProductDetails = () => {
 
   )
 }
-

@@ -1,139 +1,85 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import MetaData from "../layout/MetaData"
-import { useParams } from 'react-router-dom'
-import { getProductDetails, clearErrors} from '../../actions/orderActions'
-import { useAlert} from 'react-alert'
-import { Carousel } from 'react-bootstrap'
-
-
-
-
+import React, { Fragment, useEffect } from 'react'
+import { useAlert } from 'react-alert';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams, Link } from 'react-router-dom'
+import { clearErrors, getOrderDetails } from '../../actions/orderActions';
+import MetaData from '../layout/MetaData'
 
 export const OrderDetails = () => {
-   const {loading, order, error} = useSelector(state =>state.orderDetails)
-   const {id} =useParams();
-   const dispatch= useDispatch();
-   const alert= useAlert();
-   const [quantity, setQuantity] = useState(1)
+    const navigate=useNavigate();
+    const params= useParams();
+    const alert= useAlert();
+    const dispatch= useDispatch();
+    const {loading, error, order={}}= useSelector(state=> state.orderDetails)
+    const { envioInfo, items, pagoInfo, user, precioTotal, estado} = order
 
+    useEffect(()=>{
+        dispatch(getOrderDetails(params.id));
+        if (error){
+            alert.error(error)
+            dispatch(clearErrors)
+        }
+    },[dispatch, alert, error, params.id])
+    const detalleEnvio= envioInfo && `${envioInfo.direccion}, ${envioInfo.ciudad}, ${envioInfo.departament}`
 
-   useEffect(() => {
-    dispatch(getProductDetails(id))
-    if (error){
-      alert.error(error);
-      dispatch(clearErrors())
-    }
-
-   }, [dispatch, alert, error, id])
-
-   const increaseQty = () => {
-      const contador = document.querySelector('.count')
-
-      if (contador.valueAsNumber>=order.inventario) return;
-
-      const qty = contador.valueAsNumber+1;
-      setQuantity(qty)
-   }
-
-   const decreaseQty = () => {
-    const contador = document.querySelector('.count')
-
-    if (contador.valueAsNumber <= 1) return;
-
-    const qty = contador.valueAsNumber-1;
-    setQuantity(qty)
- }
+    const esPago= pagoInfo && pagoInfo.estado==="Aceptado" ? true : false
 
   return (
-   <Fragment>
-    {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
-      <Fragment>
-      <MetaData title={order.nombre}></MetaData>
-      <br></br>
-      <div className='row d-flex justify-content-around'>
-      
-          <div className='col-12 col-lg-5 img-fluid' id="imagen_order">
-              <Carousel pause='hover'>
-                {product.imagen && order.imagen.map(img =>(
-                  <Carousel.Item key={img.public_id}>
-                    <img className="d-block w-100" src={"../"+img.url} alt={order.nombre}></img>
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-          </div>
+    <Fragment>
+            <MetaData title={'Detalle del Pedido'} />
 
-          <div className='col-12 col-lg-5 mt-5'>
-              <h3>{order.nombre}</h3>
-              <p id="order_id">ID del Producto {order._id}</p>
-              <hr />
+            {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
+                <Fragment>
+                    <div className="row d-flex justify-content-between">
+                        <div className="col-12 col-lg-8 mt-5 order-details">
 
-              <div className='rating-outer'>
-                <div className="rating-inner" style={{width: `${(order.calificacion/5)*100}%`}}></div>
-              </div>
-              <span id="No_de_reviews">  ({product.numCalificaciones} Reviews)</span>
-              <hr />
-              <p id="precio_producto">${product.precio}</p>
-              <div className="stockCounter d-inline">
-                <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
-                <input type="number" className="form-control count d-inline" value={quantity} readOnly/>
-                <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
-              </div>
-              <button type="button" id="carrito_btn" className="btn btn-primary d-inline ml-4" disabled={product.inventario===0}>Agregar al Carrito</button>
-              <hr />
-              <p>Estado: <span id="stock_stado" className={product.inventario>0 ? 'greenColor':'redColor'}>{product.inventario>0 ? "En existencia": "Agotado"}</span></p>
-              <hr />
-              <h4 className="mt-2">Descripción:</h4>
-              <p>{product.descripcion}</p>
-              <hr />
-              <p id="vendedor">Vendido por: <strong>{product.vendedor}</strong></p>
-              <button id="btn_review" type="button" className="btn btn-primary mt-4" 
-              data-toggle="modal" data-target="#ratingModal">Deja tu Opinion</button>
-              <div className="alert alert-danger mt-5" type="alert">Inicia Sesión para dejar tu review</div>
-          
-              {/*Mensaje emergente para dejar opinion y calificacion*/}
-              <div className="row mt-2 mb-5">
-                <div className="rating w-50">
-                  <div className="modal fade" id="ratingModal" tabIndex="-1" role="dialog"
-                  aria-labelledby='ratingModalLabel' aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title" id="ratingModalLabel">Enviar Review</h5>
-                          <button type="button" className='close' data-dismiss="modal" aria-label='Close'>
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                            <h1 className="my-5">Pedido # {order._id}</h1>
+
+                            <h4 className="mb-4">Datos de envio</h4>
+                            <p><b>Nombre:</b> {user && user.name}</p>
+                            <p><b>Telefono:</b> {envioInfo && envioInfo.telefono}</p>
+                            <p className="mb-4"><b>Dirección:</b>{detalleEnvio}</p>
+                            <p><b>Pago Total:</b> ${precioTotal}</p>
+
+                            <hr />
+
+                            <h4 className="my-4">Pago</h4>
+                            <p className={esPago ? "greenColor" : "redColor"}><b>{esPago ? "Pago Completado" : "Pendiente de pago"}</b></p>
+
+                            <h4 className="my-4">Estado del pedido:</h4>
+                            <p className={order.estado && String(order.estado).includes('Entregado') ? "greenColor" : "redColor"} ><b>{estado}</b></p>
+
+                            <h4 className="my-4">Productos Comprados:</h4>
+
+                            <hr />
+                            <div className="cart-item my-1">
+                                {items && items.map(item => (
+                                    <div key={item.product} className="row my-5">
+                                        <div className="col-4 col-lg-2">
+                                            <img src={item.imagen} alt={item.nombre} height="45" width="65" />
+                                        </div>
+
+                                        <div className="col-5 col-lg-5">
+                                            <Link to={`/producto/${item.product}`}>{item.nombre}</Link>
+                                        </div>
+
+                                        <div className="col-4 col-lg-2 mt-4 mt-lg-0">
+                                            <p>${item.precio}</p>
+                                        </div>
+
+                                        <div className="col-4 col-lg-3 mt-4 mt-lg-0">
+                                            <p>{item.cantidad} Unidad(es)</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <button className="btn ml-4" id="login_btn" onClick={() => navigate(-1)}>Atrás</button>
+                            <hr />
                         </div>
-                        <div className="modal-body">
-                          <ul className="stars">
-                            <li className="star"><i className="fa fa-star"></i></li>
-                            <li className="star"><i className="fa fa-star"></i></li>
-                            <li className="star"><i className="fa fa-star"></i></li>
-                            <li className="star"><i className="fa fa-star"></i></li>
-                            <li className="star"><i className="fa fa-star"></i></li>
-                          </ul>
-
-                          <textarea name="review" id="review" className="form-control mt3"></textarea>
-
-                          <button className="btn my-3 float-right review-btn px-4 text-white" 
-                          data-dismiss="modal" aria-label="Close">Enviar</button>
-                        
-                        </div>
-                      </div>
                     </div>
+                </Fragment>
+            )}
 
-                  </div>
-                </div>
-              </div>
-          </div>
-      </div>
-  </Fragment>
-    )}
-   </Fragment>
-    
+        </Fragment>
   )
 }
-
-
-
-

@@ -1,52 +1,72 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import "../../App.css"
+import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
+import { useAlert } from 'react-alert'
+import { logout} from "../../actions/userActions"
 
 const Header = () => {
+    const {cartItems} = useSelector(state=>state.cart)
+    
+    const alert= useAlert();
+    const dispatch= useDispatch();
 
+    const { user, loading } = useSelector(state => state.auth)
+
+    const logoutHandler = () =>{
+        dispatch(logout());
+        alert.success("LogOut exitoso")
+    }
     return (
         <Fragment>
             <nav className='navbar row'>
                 <div className='col-12 col-md-3'>
                     <div className='navbar-brand'>
-                        <img src="./images/logo.png" alt="Ecoweb Logo" height={80}></img>
+                    <Link to="/"><img src="../images/logo.png" alt="Ecoweb Logo" height={80}></img></Link>
                     </div>
                 </div>
 
-                <div className='col-12 col-md-6 mt-2 mt-md-0'>
-                    <div className="input-group">
-                        <input
-                            type="text"
-                            id="search_field"
-                            className="form-control"
-                            placeholder='¿Qué estás buscando?'></input>
-                        <div className="input-group-append">
-                            <button id="search-btn" className="btn">
-                                <i className="fa fa-search-plus fa-2x text-white" aria-hidden="true"></i>
-                            </button>
+ {/*Boton inicio sesión*/}
+ <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
+                    <Link to="/carrito"><i class="fa fa-shopping-cart fa-2x text-white" aria-hidden="false"></i>
+                        <span className="ml-1" id="cart_count">{cartItems.length}</span></Link>
+
+                    {user ? (
+                        <div className="ml-4 dropdown d-inline">
+                            <Link to="#!" className="btn dropdown-toggle text-white mr-4" type="button"
+                                id="dropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <figure className='avatar avatar-nav'>
+                                    <img
+                                        src={user.avatar && user.avatar.url}
+                                        alt={user && user.nombre}
+                                        className="rounded-circle"></img>
+                                </figure>
+                                <span>{user && user.nombre}</span>
+                            </Link>
+                            <div className='dropdown-menu' aria-labelledby='dropDownMenu'>
+                                {/*Preguntamos el rol de quien esta online*/}
+                                {user && user.role === "admin" && (
+                                    <Link className="dropdown-item" to="/dashboard">Adm. Productos</Link>
+                                )}
+
+                                <Link className="dropdown-item" to="/myOrders">Pedidos</Link>
+                                <Link className="dropdown-item" to="/yo">Mi Perfil</Link>
+                                <Link className="dropdown-item" to="/" onClick={logoutHandler}>Cerrar Sesion</Link>
+                            </div>
                         </div>
-                    </div>
+                    ) : !loading && <Link to="/login" className='btn ml-4' id="login_btn">Login</Link>}
+
+
                 </div>
-                <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-                    <span><button className='btn' id="login_btn">Inicie Sesión</button></span>
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a className="fa fa-shopping-cart fa-2x text-white" id="cars" href="/Carrito" aria-hidden="false"></a>
-                    <span className="ml-1" id="cart_count">2</span>
-                </div>
+
             </nav>
-            <tr className="navbar row text-center navig">
-                <a className="link_user col-12 col-md-2" href="/Home" >Inicio</a>
-                <a className="link_user col-12 col-md-2" href="/ventas" >Ventas</a>
-                <a className="link_user col-12 col-md-2" href="/Admin-product" >Productos</a>
-                <a className="link_user col-12 col-md-2" href="/Home" >Nuevos Productos</a>
-                <a className="link_user col-12 col-md-2" href="/Home" >Usuarios</a>
-                <a className="link_user col-12 col-md-2" href="/Carrito" >Carrito</a>
-                
-            
-            </tr>
-            
-        
+            <div className="navbar row text-center navig">
+                    </div>
+           
+
         </Fragment>
     )
+
 }
 
 export default Header

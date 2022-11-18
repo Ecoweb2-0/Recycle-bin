@@ -1,9 +1,29 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import {  clearErrors, deleteProduct, getAdminProducts } from '../../actions/productActions'
+import { useAlert } from 'react-alert'
+import { useDispatch, useSelector } from 'react-redux'
 import MetaData from '../layout/MetaData'
 import Sidebar from './Sidebar'
 
+
 export const Dashboard = () => {
+    //traigo información para cantidad de productos
+    const alert = useAlert();
+    const dispatch = useDispatch();
+
+    const { loading, error, products } = useSelector(state => state.products);
+   
+
+    useEffect(() => {
+        dispatch(getAdminProducts());
+
+        if (error) {
+            alert.error(error);
+            dispatch(clearErrors())
+        }
+
+    }, [dispatch, alert, error])
     return (
         <Fragment>
             <div className="row">
@@ -32,9 +52,9 @@ export const Dashboard = () => {
                                 <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-success o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Productos<br /> <b>123</b></div>
+                                            <div className="text-center card-font-size">Productos<br /> <b>{products.length}</b></div>
                                         </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/products">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/productList">
                                             <span className="float-left">Ver Detalles</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>
@@ -47,9 +67,9 @@ export const Dashboard = () => {
                                 <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-danger o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Ventas<br /> <b>34</b></div>
+                                            <div className="text-center card-font-size">Pedidos<br /> <b>{0}</b></div>
                                         </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/orders">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/myOrders">
                                             <span className="float-left">Ver Detalles</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>
@@ -64,7 +84,7 @@ export const Dashboard = () => {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">Usuarios<br /> <b>12</b></div>
                                         </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/users">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/users">
                                             <span className="float-left">Ver Detalles</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>

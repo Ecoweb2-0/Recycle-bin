@@ -6,9 +6,6 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  font-family: "Cooper Black", "Cooper Black", cursive;
-  position: justify;
-  background-color: #e8f7c0;
 }
 
 /* Scroll Bar */
@@ -23,25 +20,25 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(85, 34, 34, 0.2);
+  background-color: rgba(66, 66, 66, 0.2);
   border: 0px;
   background-clip: padding-box;
   border-radius: 5px;
 }
 
 nav {
-  background-color: #042f41;
+  background-color: #232f3e;
   padding: 1rem 1rem;
 }
 
 .navig {
-  background-color: #2a7007;
+  background-color: #9bfe69;
   padding: 0.8rem 0.8rem;
   color: #232f3e;
 }
 
 #search_btn {
-  background-color: #378f0a;
+  background-color: #9bfe69;
 }
 
 .input-group {
@@ -64,7 +61,6 @@ f
 #cart {
   font-size: 1rem;
   color: white;
-  
 }
 
 #cart_count {
@@ -74,39 +70,32 @@ f
   color: black;
   font-weight: bold;
   font-size: 0.9rem;
-  
 }
 
-/*   */
+/* Home page */
 #products_heading {
   margin-top: 1.8rem;
 }
 
 .card {
   height: 100%;
-  
 }
 
 .card-title a {
   color: #2e2e2e;
-  
 }
 
 .card-title a:hover {
   color: #9bfe69;
   text-decoration: none;
-  
 }
 
 .card-body {
   padding-left: 0;
-  font-family: "Cooper Black", "Cooper Black", cursive;
-  
 }
 
 .card-text {
   font-size: 1.4rem;
-  
 }
 
 .card-desc {
@@ -116,8 +105,6 @@ f
 #view_btn {
   background-color: #9bfe69;
   color: black;
-  font-family: "Cooper Black", "Cooper Black", cursive;
-  
 }
 
 #danger {
@@ -316,11 +303,6 @@ footer {
   padding: 0.1rem 0.5rem;
 }
 
-.stockCounter input::-webkit-outer-spin-button,
-.stockCounter input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 
 .form-control:disabled,
 .form-control[readonly] {
@@ -504,7 +486,7 @@ footer {
 
 /* Pagination */
 .page-item.active .page-link {
-  background-color: #337413;
+  background-color: #9bfe69;
   border-color: #9bfe69;
 }
 

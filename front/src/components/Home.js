@@ -1,12 +1,14 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import MetaData from './layout/MetaData'
 import { useDispatch, useSelector } from 'react-redux'
+import { Search } from './layout/Search'
 import { getProducts } from '../actions/productActions'
 import { useParams, Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import Pagination from 'react-js-pagination'
 import Slider from "rc-slider"
 import 'rc-slider/assets/index.css'
+import CurrencyFormat from 'react-currency-format'
 
 export const Home = () => {
     const params = useParams();
@@ -34,10 +36,13 @@ export const Home = () => {
             {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
                     <MetaData title="Chatarrería Online"></MetaData>
-                    <h1 id="encabezado_productos" className="text-center">Productos</h1>
-
+                    <br></br>
+                    <div className='dropdown-menu-left col-4'>
+                            {/*Aqui va buscar*/}
+                             <Search />
+                            </div>
                     <section id="productos" className='container mt-5'>
-                        <div className='row'>
+                            <div className='row'>
                             <Slider
                                 range
                                 className='t-slider'
@@ -58,7 +63,7 @@ export const Home = () => {
                                 onChange={precio => setPrecio(precio)}
                             ></Slider>
                             <br></br>
-                            <br></br>
+                                                       <br></br>
 
                             {products && products.map(producto => (
                                 <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>
@@ -72,7 +77,8 @@ export const Home = () => {
                                                 </div>
                                                 <span id="No_de_opiniones"> {producto.numCalificaciones} Reviews</span>
                                             </div>
-                                            <p className='card-text'>${producto.precio}</p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
+                                            <p className='card-text'><CurrencyFormat value={producto.precio}displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />
+                                            </p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>    
                                                 Ver detalle
                                             </Link>
                                         </div>

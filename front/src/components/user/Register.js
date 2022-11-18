@@ -26,7 +26,7 @@ export const Register = () => {
         if (error) {
             dispatch(clearErrors)
         }
-    }, [dispatch, isAuthenticated, error, alert, navigate])
+    }, [dispatch, isAuthenticated, error, alert])
 
     const submitHandler = (e) =>{
         e.preventDefault();

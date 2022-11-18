@@ -18,7 +18,7 @@ export const Login = () => {
         if (error) {
             dispatch(clearErrors)
         }
-    }, [dispatch, isAuthenticated, error, navigate])
+    }, [dispatch, isAuthenticated, error])
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -27,7 +27,7 @@ export const Login = () => {
 
     return (
         <Fragment>
-            {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
+            {loading ? <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
                     <MetaData title={"Inicie Sesión"} />
                     <div className='row wrapper'>

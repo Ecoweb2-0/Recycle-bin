@@ -29,7 +29,7 @@ export const NewPassword = () => {
             navigate('/login')
         }
 
-    }, [dispatch, alert, error, success, navigate])
+    }, [dispatch, alert, error, success])
 
     const submitHandler = (e) => {
         e.preventDefault();

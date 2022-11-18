@@ -84,7 +84,7 @@ export const Dashboard = () => {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">Usuarios<br /> <b>12</b></div>
                                         </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/users">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/allUsers">
                                             <span className="float-left">Ver Detalles</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>

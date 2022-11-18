@@ -5,7 +5,7 @@ services:
     volumes:
     - data:/data/db
   backend:
-    build: ./backend
+    build: ./back
     ports:
       - "4000:4000"
     volumes:
@@ -19,7 +19,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      -./frontend/src:/app
+      - ./frontend/src:/app/
     stdin_open: true
     tty: true
     depends_on:

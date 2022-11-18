@@ -27,7 +27,9 @@ import { Payment } from './components/cart/Payment';
 import { Success } from './components/cart/Success'
 import { ListOrder } from './components/order/ListOrder';
 import { OrderDetails } from './components/order/OrderDetails';
-import ListReviews from './components/order/ListReviews';
+import { ListUser } from './components/user/ListUser';
+import {UpdateUser} from './components/user/UpdateUser'
+
 
 function App() {
   useEffect(() => {
@@ -54,6 +56,8 @@ function App() {
             <Route path="/password/update" element={<UpdatePassword />} />
             <Route path="/password/forgot" element={<ForgotPassword />} />
             <Route path="/resetPassword/:token" element={<NewPassword />} />
+            <Route path="/allUsers" element={<ListUser />} />
+
 
 
 {/*Ruta protegida*/}
@@ -62,6 +66,9 @@ function App() {
 
             <Route path="/updateProduct/:id"
               element={<ProtectedRoute isAdmin={true}><UpdateProduct /></ProtectedRoute>} />
+
+          <Route path="/updateUser/:id"
+              element={<ProtectedRoute isAdmin={true}><UpdateUser /></ProtectedRoute>} />
 
             <Route path="/shipping"
               element={<ProtectedRoute><Shipping /></ProtectedRoute>} />
@@ -80,6 +87,8 @@ function App() {
 
             <Route path="/order/:id"
               element={<ProtectedRoute><OrderDetails /></ProtectedRoute>} />
+            
+
 
 
 

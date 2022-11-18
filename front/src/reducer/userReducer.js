@@ -24,7 +24,14 @@ import {
     FORGOT_PASSWORD_FAIL,
     NEW_PASSWORD_REQUEST,
     NEW_PASSWORD_SUCCESS,
-    NEW_PASSWORD_FAIL
+    NEW_PASSWORD_FAIL,
+    ALL_USERS_REQUEST,
+    ALL_USERS_SUCCESS,
+    ALL_USERS_FAIL,
+    USER_UPDATE_REQUEST,
+    USER_UPDATE_SUCCESS,
+    USER_UPDATE_FAIL,
+    USER_UPDATE_RESET,
 } from "../constants/userConstants"
 
 //Cambios y reducer sobre procesos de autenticacion
@@ -93,6 +100,7 @@ export const authReducer = (state = { user: {} }, action) => {
 //Actualizar usuario, actualizar contraseña
 export const userReducer = ( state = {}, action) =>{
     switch (action.type){
+        case USER_UPDATE_REQUEST:
         case UPDATE_PROFILE_REQUEST:
         case UPDATE_PASSWORD_REQUEST:
             return {
@@ -100,6 +108,7 @@ export const userReducer = ( state = {}, action) =>{
                 loading:true
             }
     
+        case USER_UPDATE_SUCCESS:
         case UPDATE_PROFILE_SUCCESS:
         case UPDATE_PASSWORD_SUCCESS:
             return{
@@ -107,7 +116,7 @@ export const userReducer = ( state = {}, action) =>{
                 loading:false,
                 isUpdated: action.payload
             }
-        
+        case USER_UPDATE_RESET:
         case UPDATE_PROFILE_RESET:
         case UPDATE_PASSWORD_RESET:
             return{
@@ -115,6 +124,7 @@ export const userReducer = ( state = {}, action) =>{
                 isUpdated: false
             }
         
+        case USER_UPDATE_FAIL:
         case UPDATE_PROFILE_FAIL:
         case UPDATE_PASSWORD_FAIL:
             return{
@@ -171,6 +181,36 @@ export const forgotPasswordReducer = (state={}, action)=>{
                 ...state,
                 error:null
             }
+        default:
+            return state;
+    }
+}
+
+// CONSULTAR TODOS LOS USUARIOS
+export const UsersReducer = (state = {users:[]}, action)=>{
+    switch (action.type){
+
+        case ALL_USERS_REQUEST:
+            return{
+                loading: true,
+                users: []
+            }
+        case ALL_USERS_SUCCESS:
+            return{
+                loading:false,
+                users: action.payload
+            }
+        case ALL_USERS_FAIL:
+            return{
+                loading: false,
+                error: action.payload
+            }
+        case CLEAR_ERRORS:
+            return{
+                ...state,
+                error:null
+            }
+
         default:
             return state;
     }

@@ -90,8 +90,6 @@ export const ListOrder = () => {
                     bordered
                     striped
                     hover
-                    noBottomColumns={true}
-
                 />
             )}
 

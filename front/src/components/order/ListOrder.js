@@ -5,6 +5,7 @@ import { useAlert } from "react-alert"
 import { useDispatch, useSelector } from "react-redux"
 import { clearErrors, myOrders } from '../../actions/orderActions'
 import { Link } from "react-router-dom"
+import CurrencyFormat from 'react-currency-format'
 
 export const ListOrder = () => {
     const { loading, error, orders } = useSelector(state => state.myOrders)
@@ -64,7 +65,7 @@ export const ListOrder = () => {
                 fecha: fecha,
                 id: order._id,
                 cantidadItems: order.items.length,
-                costo: `$${order.precioTotal}`,
+                costo: <CurrencyFormat value={order.precioTotal} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} />,
                 estado: order.estado && String(order.estado).includes("Entregado")
                     ? <p style={{ color: "green" }}>{order.estado}</p>
                     : <p style={{ color: "red" }}>{order.estado}</p>,
@@ -91,7 +92,6 @@ export const ListOrder = () => {
                     striped
                     hover
                     noBottomColumns={true}
-
                 />
             )}
 

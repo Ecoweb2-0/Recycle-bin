@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { clearErrors, getOrderDetails } from '../../actions/orderActions';
 import MetaData from '../layout/MetaData'
+import CurrencyFormat from 'react-currency-format'
 
 export const OrderDetails = () => {
     const navigate=useNavigate();
@@ -64,7 +65,7 @@ export const OrderDetails = () => {
                                         </div>
 
                                         <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-                                            <p>${item.precio}</p>
+                                            <p><CurrencyFormat value={item.precio} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => <div>{value}</div>} /></p>
                                         </div>
 
                                         <div className="col-4 col-lg-3 mt-4 mt-lg-0">

@@ -18,7 +18,8 @@ export const Login = () => {
         if (error) {
             dispatch(clearErrors)
         }
-    }, [dispatch, isAuthenticated, error, navigate])
+        // eslint-disable-next-line
+    }, [dispatch, isAuthenticated, error])
 
     const submitHandler = (e) => {
         e.preventDefault();

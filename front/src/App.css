@@ -665,3 +665,16 @@ ul.CTAs a {
   font-size: 1.5rem;
 }
 
+/*Butons*/
+
+.btn-primary{
+  background: #347556;
+}
+
+.btn-warning{
+  background: #4C87D0;
+}
+
+.btn-danger{
+  background: #C35153;
+}

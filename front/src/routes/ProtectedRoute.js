@@ -11,7 +11,8 @@ const ProtectedRoute = ({children, isAdmin}) =>{
         if(!user){
             dispatch(loadUser());
         }
-    }, [isAuthenticated, loading, dispatch, user])
+           // eslint-disable-next-line    
+    }, [isAuthenticated, loading])
 
     if (loading) return <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>;
 

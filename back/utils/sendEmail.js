@@ -5,8 +5,8 @@ const sendEmail = async options =>{
         host: "smtp.office365.com",
         port: 587,
         auth: {
-          user: "recyclebinciclo4@outlook.com",
-          pass: "mozncjddjqqgxdnl"
+          user: "caritoleal@hotmail.com",
+          pass: "Judaso2023"
         }
       });
     const mensaje={

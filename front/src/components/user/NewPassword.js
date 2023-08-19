@@ -28,7 +28,6 @@ export const NewPassword = () => {
             alert.success('Contraseña reiniciada correctamente')
             navigate('/login')
         }
-
     }, [dispatch, alert, error, success])
 
     const submitHandler = (e) => {
